@@ -26,8 +26,11 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Widget Playground'),
       ),
-      body: Center(
-        child: Text('Flutter Playground'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Card(),
+        ],
       ),
     );
   }
