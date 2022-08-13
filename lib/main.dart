@@ -29,7 +29,14 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Card(),
+          // This is just a prestyled container that
+          // can wrap around other,more important widgets
+          Card(
+            child: Text('Chart will be here!'),
+          ),
+          Card(
+            child: Text('Transactions will go here!'),
+          ),
         ],
       ),
     );
