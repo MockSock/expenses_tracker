@@ -28,6 +28,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // This is just a prestyled container that
           // can wrap around other,more important widgets
@@ -43,6 +44,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           Card(
+            color: Colors.blueGrey,
             child: Text('Transactions will go here!'),
           ),
         ],
