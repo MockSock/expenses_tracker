@@ -27,12 +27,20 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Widget Playground'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           // This is just a prestyled container that
           // can wrap around other,more important widgets
           Card(
-            child: Text('Chart will be here!'),
+            color: Colors.greenAccent,
+            elevation: 5,
+            // Card will always take the size of its child
+            // this means that you have to space it using
+            // another Container widget.
+            child: Container(
+              width: double.infinity,
+              child: Text('Chart will be here!'),
+            ),
           ),
           Card(
             child: Text('Transactions will go here!'),
