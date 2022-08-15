@@ -70,7 +70,20 @@ class MyHomePage extends StatelessWidget {
                 // Always think "What shoud be inside my Widget"
                 // This helps plan the layout of the widgets and
                 // keeps you moving in a concrete direction
-                child: Text(tx.title),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(tx.amount.toString()),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(tx.title),
+                        Text(tx.date.toString()),
+                      ],
+                    )
+                  ],
+                ),
               );
             }).toList(),
           ),
