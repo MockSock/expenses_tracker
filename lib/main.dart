@@ -98,18 +98,26 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Column(
                       children: <Widget>[
-                        Text(
-                          tx.title,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            tx.title,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                            ),
                           ),
                         ),
-                        Text(
-                          tx.date.toString(),
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            fontStyle: FontStyle.italic,
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            tx.date.toString(),
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ],
