@@ -82,12 +82,19 @@ class MyHomePage extends StatelessWidget {
                         // color goes here with the rest of the decorations
                         color: Colors.greenAccent,
                         border: Border.all(
-                          color: Colors.black,
+                          color: Colors.amber,
                           width: 2,
                         ),
                       ),
                       alignment: Alignment.centerLeft,
-                      child: Text(tx.amount.toString()),
+                      child: Text(
+                        tx.amount.toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.amber,
+                        ),
+                      ),
                     ),
                     Column(
                       children: <Widget>[
