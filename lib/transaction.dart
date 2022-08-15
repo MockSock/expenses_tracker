@@ -6,5 +6,12 @@ class Transaction {
   final DateTime date;
 
   // Constructor
-  Transaction({this.id, this.title, this.amount, this.date});
+  // Unless the value is given above, the properties will always
+  // need the required tag, so that when it is called the value is given
+  Transaction({
+    required this.id,
+    required this.title,
+    required this.amount,
+    required this.date,
+  });
 }
