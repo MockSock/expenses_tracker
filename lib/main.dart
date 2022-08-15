@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transaction = [
+  final List<Transaction> transactions = [
     Transaction(
       id: 'p1',
       title: 'Apple',
@@ -62,6 +62,15 @@ class MyHomePage extends StatelessWidget {
           ),
 
           // Transaction List
+          Column(
+            // this allows a list of objects to become
+            // widgets via a function within map
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
