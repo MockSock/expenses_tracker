@@ -67,6 +67,9 @@ class MyHomePage extends StatelessWidget {
             // widgets via a function within map
             children: transactions.map((tx) {
               return Card(
+                // Always think "What shoud be inside my Widget"
+                // This helps plan the layout of the widgets and
+                // keeps you moving in a concrete direction
                 child: Text(tx.title),
               );
             }).toList(),
