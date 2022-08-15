@@ -73,13 +73,14 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      color: Colors.greenAccent,
                       margin: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 15,
                       ),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
+                        // color goes here with the rest of the decorations
+                        color: Colors.greenAccent,
                         border: Border.all(
                           color: Colors.black,
                           width: 2,
