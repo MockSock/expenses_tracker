@@ -60,10 +60,8 @@ class MyHomePage extends StatelessWidget {
               child: Text('Chart will be here!'),
             ),
           ),
-          Card(
-            color: Colors.blueGrey,
-            child: Text('Transactions will go here!'),
-          ),
+
+          // Transaction List
         ],
       ),
     );
