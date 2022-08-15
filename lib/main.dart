@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:expenses_tracker/transaction.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transaction = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
