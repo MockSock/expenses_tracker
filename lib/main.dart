@@ -81,7 +81,7 @@ class MyHomePage extends StatelessWidget {
                         Text(tx.title),
                         Text(tx.date.toString()),
                       ],
-                    )
+                    ),
                   ],
                 ),
               );
