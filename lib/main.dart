@@ -92,14 +92,26 @@ class MyHomePage extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
-                          color: Colors.amber,
+                          color: Colors.blueGrey,
                         ),
                       ),
                     ),
                     Column(
                       children: <Widget>[
-                        Text(tx.title),
-                        Text(tx.date.toString()),
+                        Text(
+                          tx.title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Text(
+                          tx.date.toString(),
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
                       ],
                     ),
                   ],
