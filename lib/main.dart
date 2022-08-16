@@ -64,8 +64,10 @@ class MyHomePage extends StatelessWidget {
           ),
 
           Card(
+            elevation: 5,
             child: Column(
               children: <Widget>[
+                TextField(),
                 TextField(),
               ],
             ),
