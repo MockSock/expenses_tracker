@@ -41,8 +41,12 @@ class MyHomePage extends StatelessWidget {
 
   // Input Work
   // Input values are always strings by default
-  String titleInput;
-  String amountInput;
+  // late String titleController;
+  // late String amountController;
+
+  // Controllers also are very useful
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -77,19 +81,22 @@ class MyHomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   TextField(
-                    onChanged: (value) => titleInput = value,
+                    // the controller will now track the value for you
+                    controller: titleController,
+                    // onChanged: (value) => titleController = value,
                     decoration: const InputDecoration(labelText: 'Title'),
                   ),
                   TextField(
-                    onChanged: (value) => amountInput = value,
+                    controller: amountController,
+                    // onChanged: (value) => amountController = value,
                     decoration: const InputDecoration(labelText: 'Amount'),
                   ),
 
                   // Submit Button
                   TextButton(
                     onPressed: () {
-                      print(titleInput);
-                      print(amountInput);
+                      print(titleController);
+                      print(amountController);
                     },
                     child: const Text(
                       style: TextStyle(
