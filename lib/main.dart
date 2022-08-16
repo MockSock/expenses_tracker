@@ -78,16 +78,19 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     onChanged: (value) => titleInput = value,
-                    decoration: InputDecoration(labelText: 'Title'),
+                    decoration: const InputDecoration(labelText: 'Title'),
                   ),
                   TextField(
                     onChanged: (value) => amountInput = value,
-                    decoration: InputDecoration(labelText: 'Amount'),
+                    decoration: const InputDecoration(labelText: 'Amount'),
                   ),
 
                   // Submit Button
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titleInput);
+                      print(amountInput);
+                    },
                     child: const Text(
                       style: TextStyle(
                         fontSize: 20,
