@@ -88,7 +88,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        tx.amount.toString(),
+                        // \ is an escape character
+                        "\$: ${tx.amount}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
