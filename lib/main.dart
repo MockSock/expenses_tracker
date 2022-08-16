@@ -60,13 +60,13 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           // This is just a prestyled container that
           // can wrap around other,more important widgets
-          Card(
+          const Card(
             color: Colors.greenAccent,
             elevation: 5,
             // Card will always take the size of its child
             // this means that you have to space it using
             // another Container widget.
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               child: Text('Chart will be here!'),
             ),
