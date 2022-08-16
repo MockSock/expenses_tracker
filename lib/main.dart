@@ -75,6 +75,9 @@ class MyHomePage extends StatelessWidget {
                   TextField(
                     decoration: InputDecoration(labelText: 'Amount'),
                   ),
+
+                  // Submit Button
+                  TextButton(onPressed: onPressed, child: child),
                 ],
               ),
             ),
