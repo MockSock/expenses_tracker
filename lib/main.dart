@@ -39,6 +39,11 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // Input Work
+  // Input values are always strings by default
+  String titleInput;
+  String amountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
