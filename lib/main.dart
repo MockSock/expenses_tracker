@@ -116,7 +116,8 @@ class MyHomePage extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            tx.date.toString(),
+                            // Easiest way to format and return as string
+                            DateFormat().format(tx.date),
                             style: const TextStyle(
                               fontSize: 14.0,
                               fontStyle: FontStyle.italic,
