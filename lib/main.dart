@@ -68,6 +68,7 @@ class MyHomePage extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Title'),
@@ -77,7 +78,10 @@ class MyHomePage extends StatelessWidget {
                   ),
 
                   // Submit Button
-                  TextButton(onPressed: onPressed, child: child),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Add Transaction'),
+                  ),
                 ],
               ),
             ),
