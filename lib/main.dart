@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+
 import './transaction.dart';
 
 void main() {
@@ -88,7 +90,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        tx.amount.toString(),
+                        // \ is an escape character
+                        "\$${tx.amount}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
@@ -113,7 +116,8 @@ class MyHomePage extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            tx.date.toString(),
+                            // Easiest way to format and return as string
+                            DateFormat.yMMMd().format(tx.date),
                             style: const TextStyle(
                               fontSize: 14.0,
                               fontStyle: FontStyle.italic,
