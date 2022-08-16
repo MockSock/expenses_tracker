@@ -46,7 +46,7 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Widget Playground'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // This is just a prestyled container that
@@ -60,6 +60,14 @@ class MyHomePage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               child: Text('Chart will be here!'),
+            ),
+          ),
+
+          Card(
+            child: Column(
+              children: <Widget>[
+                TextField(),
+              ],
             ),
           ),
 
@@ -81,8 +89,6 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        // color goes here with the rest of the decorations
-                        color: Colors.greenAccent,
                         border: Border.all(
                           color: Colors.amber,
                           width: 2,
@@ -95,7 +101,7 @@ class MyHomePage extends StatelessWidget {
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
-                          color: Colors.blueGrey,
+                          color: Colors.amber,
                         ),
                       ),
                     ),
