@@ -77,9 +77,11 @@ class MyHomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   TextField(
+                    onChanged: (value) => titleInput = value,
                     decoration: InputDecoration(labelText: 'Title'),
                   ),
                   TextField(
+                    onChanged: (value) => amountInput = value,
                     decoration: InputDecoration(labelText: 'Amount'),
                   ),
 
