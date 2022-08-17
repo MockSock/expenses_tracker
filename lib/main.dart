@@ -96,8 +96,8 @@ class MyHomePage extends StatelessWidget {
                   // Submit Button
                   TextButton(
                     onPressed: () {
-                      print(titleController);
-                      print(amountController);
+                      print(titleController.text);
+                      print(amountController.text);
                     },
                     child: const Text(
                       style: TextStyle(
