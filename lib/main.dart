@@ -44,7 +44,8 @@ class MyHomePage extends StatelessWidget {
   // late String titleController;
   // late String amountController;
 
-  // Controllers also are very useful
+  // Controllers also are very useful,
+  // since they listen for input then save it
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
