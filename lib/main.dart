@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './models/transaction_list.dart';
+import 'widgets/transaction_list.dart';
 
 void main() {
   runApp(const MyApp());
