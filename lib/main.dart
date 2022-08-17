@@ -24,21 +24,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 'p1',
-      title: 'Apple',
-      amount: 1.75,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'c1',
-      title: 'TankTop',
-      amount: 5.25,
-      date: DateTime.now(),
-    ),
-  ];
-
   // Input Work
   // Input values are always strings by default
   // late String titleController;
