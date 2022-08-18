@@ -5,6 +5,10 @@ import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
+  // Why change to Stateless?
+
+  // Simply put, the parent widget will rebuild this widget,
+  // making this being stateful redundant and unneeded clutter
   TransactionList({Key? key}) : super(key: key);
 
   final List<Transaction> _userTransactions = [
