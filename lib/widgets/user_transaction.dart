@@ -28,6 +28,8 @@ class _UserTransactionsState extends State<UserTransactions> {
     ),
   ];
 
+  void _addNewTransaction(String title, String amount) {}
+
   @override
   Widget build(BuildContext context) {
     return Column(
