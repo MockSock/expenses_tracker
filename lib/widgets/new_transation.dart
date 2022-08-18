@@ -35,7 +35,10 @@ class NewTransaction extends StatelessWidget {
             // Submit Button
             TextButton(
               onPressed: () {
-                addTransaction();
+                addTransaction(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
               },
               child: const Text(
                 style: TextStyle(
