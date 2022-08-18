@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
-  NewTransaction({Key? key, required this.addTransaction}) : super(key: key);
+  NewTransaction(this.addTransaction);
   // Input Work
   // Input values are always strings by default
 
@@ -35,8 +35,7 @@ class NewTransaction extends StatelessWidget {
             // Submit Button
             TextButton(
               onPressed: () {
-                print(titleController.text);
-                print(amountController.text);
+                addTransaction();
               },
               child: const Text(
                 style: TextStyle(
