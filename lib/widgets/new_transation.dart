@@ -40,7 +40,7 @@ class NewTransaction extends StatelessWidget {
                   double.parse(amountController.text),
                 );
               },
-              child: const Text(
+              child: Text(
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.green,
