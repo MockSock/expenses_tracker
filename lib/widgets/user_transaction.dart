@@ -36,6 +36,9 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: newTractAmount,
       date: DateTime.now(),
     );
+    setState(() {
+      _userTransactions.add(newTract);
+    });
   }
 
   @override
