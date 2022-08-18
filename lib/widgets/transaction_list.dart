@@ -4,14 +4,9 @@ import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
 
-class TransactionList extends StatefulWidget {
-  const TransactionList({Key? key}) : super(key: key);
+class TransactionList extends StatelessWidget {
+  TransactionList({Key? key}) : super(key: key);
 
-  @override
-  State<TransactionList> createState() => TransactionListState();
-}
-
-class TransactionListState extends State<TransactionList> {
   final List<Transaction> _userTransactions = [
     Transaction(
       id: 'p1',
