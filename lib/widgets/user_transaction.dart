@@ -46,7 +46,9 @@ class _UserTransactionsState extends State<UserTransactions> {
     return Column(
       children: <Widget>[
         // New Transaction Area
-        NewTransaction(),
+        NewTransaction(
+          addTransaction: _addNewTransaction,
+        ),
 
         // Transaction List
         TransactionList(transactions: _userTransactions),

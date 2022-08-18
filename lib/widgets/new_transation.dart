@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
+  NewTransaction({Key? key, required this.addTransaction}) : super(key: key);
   // Input Work
   // Input values are always strings by default
 
@@ -8,6 +9,8 @@ class NewTransaction extends StatelessWidget {
   // since they listen for input then save it
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  final Function addTransaction;
 
   @override
   Widget build(BuildContext context) {
