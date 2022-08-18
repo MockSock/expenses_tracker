@@ -9,28 +9,16 @@ class TransactionList extends StatelessWidget {
 
   // Simply put, the parent widget will rebuild this widget,
   // making this being stateful redundant and unneeded clutter
-  TransactionList({Key? key}) : super(key: key);
+  TransactionList({Key? key, required this.transactions}) : super(key: key);
 
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 'p1',
-      title: 'Apple',
-      amount: 1.75,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'c1',
-      title: 'TankTop',
-      amount: 5.25,
-      date: DateTime.now(),
-    ),
-  ];
+  final List<Transaction> transactions;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       // this allows a list of objects to become
       // widgets via a function within map
-      children: _userTransactions.map((tx) {
+      children: transactions.map((tx) {
         return Card(
           // Always think "What shoud be inside my Widget"
           // This helps plan the layout of the widgets and

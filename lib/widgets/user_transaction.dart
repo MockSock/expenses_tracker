@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import './transaction_list.dart';
 import './new_transation.dart';
+import '../models/transaction.dart';
 
 class UserTransactions extends StatefulWidget {
   @override
@@ -12,6 +13,21 @@ class UserTransactions extends StatefulWidget {
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 'p1',
+      title: 'Apple',
+      amount: 1.75,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'c1',
+      title: 'TankTop',
+      amount: 5.25,
+      date: DateTime.now(),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +36,7 @@ class _UserTransactionsState extends State<UserTransactions> {
         NewTransaction(),
 
         // Transaction List
-        TransactionList(),
+        TransactionList(transactions: _userTransactions),
       ],
     );
   }
