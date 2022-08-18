@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class NewTransaction extends StatelessWidget {
   // Input Work
   // Input values are always strings by default
-  // late String titleController;
-  // late String amountController;
 
   // Controllers also are very useful,
   // since they listen for input then save it
@@ -24,12 +22,10 @@ class NewTransaction extends StatelessWidget {
             TextField(
               // the controller will now track the value for you
               controller: titleController,
-              // onChanged: (value) => titleController = value,
               decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: amountController,
-              // onChanged: (value) => amountController = value,
               decoration: const InputDecoration(labelText: 'Amount'),
             ),
 
