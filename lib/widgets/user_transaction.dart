@@ -1,6 +1,5 @@
 // This widget will manage the state
 // of the other two transaction files
-
 import 'package:flutter/material.dart';
 
 import './transaction_list.dart';
@@ -28,7 +27,16 @@ class _UserTransactionsState extends State<UserTransactions> {
     ),
   ];
 
-  void _addNewTransaction(String title, String amount) {}
+  void _addNewTransaction(String newTractTitle, double newTractAmount) {
+    final newTract = Transaction(
+      // Ususally you want to generate a unique
+      // value but the date works for now
+      id: DateTime.now().toString(),
+      title: newTractTitle,
+      amount: newTractAmount,
+      date: DateTime.now(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
