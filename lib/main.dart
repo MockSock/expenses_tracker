@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/transaction_list.dart';
-import './widgets/new_transation.dart';
+import './widgets/user_transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,11 +46,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
 
-          // New Transaction Area
-          NewTransaction(),
-
-          // Transaction List
-          TransactionList(),
+          UserTransactions(),
         ],
       ),
     );

@@ -1,5 +1,10 @@
-// This file will manage the state of the other two transaction files
+// This widget will manage the state
+// of the other two transaction files
+
 import 'package:flutter/material.dart';
+
+import './transaction_list.dart';
+import './new_transation.dart';
 
 class UserTransactions extends StatefulWidget {
   @override
