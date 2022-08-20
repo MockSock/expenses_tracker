@@ -28,6 +28,9 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Widget Playground'),
       ),
+      // this widget can only be on the Body element
+      // it needs other widgets to set the height of
+      // the scroll functionality, so this place is best
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,
