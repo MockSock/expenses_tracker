@@ -14,10 +14,11 @@ class NewTransaction extends StatelessWidget {
 
   // This is a simple refactor to reduce redundency
   void submitData() {
-    addTransaction(
-      titleController.text,
-      double.parse(amountController.text),
-    );
+    // we can now use these variables to check for values
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    addTransaction(enteredTitle, enteredAmount);
   }
 
   @override
@@ -48,7 +49,7 @@ class NewTransaction extends StatelessWidget {
 
             // Submit Button
             TextButton(
-              onPressed: () => submitData,
+              onPressed: submitData,
               child: Text(
                 'Add Transaction',
                 style: TextStyle(
