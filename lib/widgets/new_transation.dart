@@ -50,11 +50,11 @@ class NewTransaction extends StatelessWidget {
             TextButton(
               onPressed: () => submitData(),
               child: Text(
+                'Add Transaction',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.green,
                 ),
-                'Add Transaction',
               ),
             ),
           ],
