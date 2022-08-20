@@ -17,6 +17,8 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     // This automatically gives scrolling functionality, but needs
     // a container that gives it a fixed height, otherwise it is infinite
+
+    // This is not very optimized, and bad on performance, so use the builder
     return Container(
       height: 350,
       child: ListView(
