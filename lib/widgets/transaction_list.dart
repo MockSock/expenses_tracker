@@ -20,9 +20,10 @@ class TransactionList extends StatelessWidget {
 
     // This is not very optimized, and bad on performance, so use the builder
     return ListView.builder(
-      // this allows a list of objects to become
-      // widgets via a function within map
-      children: transactions.map((tx) {
+      itemCount: transactions.length,
+      itemBuilder: (context, index) {
+        // index will now track the specific trnasaction,
+        // letting flutter call for data based on the index
         return Card(
           // Always think "What shoud be inside my Widget"
           // This helps plan the layout of the widgets and
@@ -44,7 +45,7 @@ class TransactionList extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   // \ is an escape character
-                  "\$${tx.amount}",
+                  "\$${transactions[index].amount}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
@@ -58,7 +59,7 @@ class TransactionList extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      tx.title,
+                      transactions[index].title,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
@@ -70,7 +71,7 @@ class TransactionList extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       // Easiest way to format and return as string
-                      DateFormat.yMMMd().format(tx.date),
+                      DateFormat.yMMMd().format(transactions[index].date),
                       style: const TextStyle(
                         fontSize: 14.0,
                         fontStyle: FontStyle.italic,
@@ -82,7 +83,7 @@ class TransactionList extends StatelessWidget {
             ],
           ),
         );
-      }).toList(),
+      },
     );
   }
 }
