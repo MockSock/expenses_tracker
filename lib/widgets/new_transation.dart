@@ -28,6 +28,8 @@ class NewTransaction extends StatelessWidget {
               decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
+              // Allows the keyboard to be locked to a number pad
+              keyboardType: TextInputType.number,
               controller: amountController,
               decoration: const InputDecoration(labelText: 'Amount'),
             ),
