@@ -12,6 +12,14 @@ class NewTransaction extends StatelessWidget {
 
   final Function addTransaction;
 
+  // This is a simple refactor to reduce redundency
+  void submitData() {
+    addTransaction(
+      titleController.text,
+      double.parse(amountController.text),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -26,22 +34,21 @@ class NewTransaction extends StatelessWidget {
               // the controller will now track the value for you
               controller: titleController,
               decoration: const InputDecoration(labelText: 'Title'),
+              onSubmitted: (_) => submitData,
             ),
             TextField(
               // Allows the keyboard to be locked to a number pad
               keyboardType: TextInputType.number,
               controller: amountController,
               decoration: const InputDecoration(labelText: 'Amount'),
+              // convention states that you use an underscore
+              // to use on one time variables like this parameter
+              onSubmitted: (_) => submitData,
             ),
 
             // Submit Button
             TextButton(
-              onPressed: () {
-                addTransaction(
-                  titleController.text,
-                  double.parse(amountController.text),
-                );
-              },
+              onPressed: () => submitData(),
               child: Text(
                 style: TextStyle(
                   fontSize: 20,
