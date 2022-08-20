@@ -15,7 +15,8 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    // This automatically gives scrolling functionality
+    return ListView(
       // this allows a list of objects to become
       // widgets via a function within map
       children: transactions.map((tx) {
