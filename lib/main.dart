@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  void startAddNewTransaction() {
+    return;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +36,7 @@ class MyHomePage extends StatelessWidget {
         // and make core features easier to access
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: startAddNewTransaction,
             icon: const Icon(Icons.add),
           ),
         ],
@@ -68,8 +72,8 @@ class MyHomePage extends StatelessWidget {
       // visualize how the app will look
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        onPressed: startAddNewTransaction,
         child: const Icon(Icons.add),
-        onPressed: () {},
       ),
     );
   }
