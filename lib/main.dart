@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
+        // Swatch will automatically generate
+        // different shades of the color given
         primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
