@@ -64,7 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
         context: ctx,
         // needs its own context
         builder: (bCtx) {
-          return NewTransaction(_addNewTransaction);
+          return GestureDetector(
+            onTap: () {},
+            behavior: HitTestBehavior.opaque,
+            child: NewTransaction(_addNewTransaction),
+          );
         });
   }
 
@@ -79,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             onPressed: () => _startAddNewTransaction(context),
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.add),
           ),
         ],
       ),
@@ -114,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewTransaction(context),
-        child: const Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
     );
   }
