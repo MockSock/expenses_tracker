@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // Swatch will automatically generate
         // different shades of the color given
+
+        // The tutorial uses accent color, which is
+        // depricated, and offers a different set of
+        // coloring options, so study later
         primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
