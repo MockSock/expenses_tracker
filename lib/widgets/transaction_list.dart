@@ -20,6 +20,9 @@ class TransactionList extends StatelessWidget {
 
     // This is not very optimized, and bad on performance, so use the builder
     return ListView.builder(
+      // shrinkwrap keeps the vertical space equal to teh amount of container space needed,
+      // without this, an infinite height error comes up
+      shrinkWrap: true,
       itemCount: transactions.length,
       itemBuilder: (context, index) {
         // index will now track the specific trnasaction,
