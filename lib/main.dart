@@ -64,6 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
         context: ctx,
         // needs its own context
         builder: (bCtx) {
+          // This makes it so the new transaction can be canceled out of
+          // and
           return GestureDetector(
             onTap: () {},
             behavior: HitTestBehavior.opaque,
@@ -83,42 +85,37 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             onPressed: () => _startAddNewTransaction(context),
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           ),
         ],
       ),
-      // this widget can only be on the Body element
-      // it needs other widgets to set the height of
-      // the scroll functionality, so this place is best
-      body: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            // This is just a prestyled container that
-            // can wrap around other,more important widgets
-            const Card(
-              color: Colors.greenAccent,
-              elevation: 5,
-              // Card will always take the size of its child
-              // this means that you have to space it using
-              // another Container widget.
-              child: SizedBox(
-                width: double.infinity,
-                child: Text('Chart will be here!'),
-              ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // This is just a prestyled container that
+          // can wrap around other,more important widgets
+          const Card(
+            color: Colors.greenAccent,
+            elevation: 5,
+            // Card will always take the size of its child
+            // this means that you have to space it using
+            // another Container widget.
+            child: SizedBox(
+              width: double.infinity,
+              child: Text('Chart will be here!'),
             ),
+          ),
 
-            TransactionList(transactions: _userTransactions),
-          ],
-        ),
+          TransactionList(transactions: _userTransactions),
+        ],
       ),
       // Just adding it down here to help
       // visualize how the app will look
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewTransaction(context),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
