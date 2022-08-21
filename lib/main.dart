@@ -27,6 +27,12 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Widget Playground'),
+
+        // We can add action buttons here,
+        // and make core features easier to access
+        actions: <Widget>[
+          IconButton(onPressed: onPressed, icon: icon),
+        ],
       ),
       // this widget can only be on the Body element
       // it needs other widgets to set the height of
