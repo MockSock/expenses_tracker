@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/user_transaction.dart';
+import './widgets/transaction_list.dart';
 import './widgets/new_transation.dart';
 import './models/transaction.dart';
 
@@ -105,11 +105,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            UserTransactions(),
+            TransactionList(transactions: _userTransactions),
           ],
         ),
       ),
-
       // Just adding it down here to help
       // visualize how the app will look
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
