@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // and make core features easier to access
         actions: <Widget>[
           IconButton(
-            onPressed: _startAddNewTransaction(context),
+            onPressed: () => _startAddNewTransaction(context),
             icon: const Icon(Icons.add),
           ),
         ],
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // visualize how the app will look
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: _startAddNewTransaction,
+        onPressed: () => _startAddNewTransaction(context),
         child: const Icon(Icons.add),
       ),
     );
