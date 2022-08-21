@@ -66,6 +66,7 @@ class MyHomePage extends StatelessWidget {
 
       // Just adding it down here to help
       // visualize how the app will look
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {},
