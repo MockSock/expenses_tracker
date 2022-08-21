@@ -28,13 +28,15 @@ class _NewTransactionState extends State<NewTransaction> {
 
     // Validation
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
-      // empty returns stop the funtion before the rest of the code is ran
+      // empty returns stop the funtion before
+      // the rest of the code is ran
       return;
     }
 
     widget.addTransaction(enteredTitle, enteredAmount);
 
-    // When the new transaction is made, it will get rid of the form
+    // When the new transaction is made,
+    // it will get rid of the form
     Navigator.of(context).pop();
   }
 
