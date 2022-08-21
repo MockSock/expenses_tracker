@@ -22,10 +22,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   // Always will need the context of where the widget should go
-  // So it knows where to use the builder, with a differrent
-  // named context to be easier on the eyes
   void startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,
