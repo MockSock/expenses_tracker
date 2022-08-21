@@ -63,6 +63,12 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+
+      // Just adding it down here to help
+      // visualize how the app will look
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
     );
   }
 }
