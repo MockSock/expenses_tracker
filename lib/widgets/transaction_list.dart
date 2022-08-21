@@ -41,7 +41,7 @@ class TransactionList extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.amber,
+                    color: Theme.of(context).primaryColor,
                     width: 2,
                   ),
                 ),
@@ -50,10 +50,10 @@ class TransactionList extends StatelessWidget {
                   // \ is an escape character
                   // This makes it fixed to two decimal points, so it looks like currency
                   "\$${transactions[index].amount.toStringAsFixed(2)}",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
-                    color: Colors.amber,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
