@@ -18,7 +18,7 @@ class NewTransaction extends StatelessWidget {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
-    // Check for data
+    // Validation
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       // empty returns stop the funtion before the rest of the code is ran
       return;
@@ -41,7 +41,8 @@ class NewTransaction extends StatelessWidget {
               // the controller will now track the value for you
               controller: titleController,
               decoration: const InputDecoration(labelText: 'Title'),
-              onSubmitted: (_) => submitData,
+              // needs paranthesis for when validation is there so it runs
+              onSubmitted: (_) => submitData(),
             ),
             TextField(
               // Allows the keyboard to be locked to a number pad
@@ -50,7 +51,7 @@ class NewTransaction extends StatelessWidget {
               decoration: const InputDecoration(labelText: 'Amount'),
               // convention states that you use an underscore
               // to use on one time variables like this parameter
-              onSubmitted: (_) => submitData,
+              onSubmitted: (_) => submitData(),
             ),
 
             // Submit Button

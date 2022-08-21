@@ -45,7 +45,8 @@ class TransactionList extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   // \ is an escape character
-                  "\$${transactions[index].amount}",
+                  // This makes it fixed to two decimal points, so it looks like currency
+                  "\$${transactions[index].amount.toStringAsFixed(2)}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
