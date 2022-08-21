@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Widget Playground'),
+        title: const Text('Personal Expenses'),
 
         // We can add action buttons here,
         // and make core features easier to access
