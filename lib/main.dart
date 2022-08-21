@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './widgets/user_transaction.dart';
+import './widgets/new_transation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,12 @@ class MyHomePage extends StatelessWidget {
   // So it knows where to use the builder, with a differrent
   // named context to be easier on the eyes
   void startAddNewTransaction(BuildContext ctx) {
-    showModalBottomSheet(context: ctx, builder: builder);
+    showModalBottomSheet(
+        context: ctx,
+        // needs its own context
+        builder: (bCtx) {
+          return NewTransaction(addTransaction);
+        });
   }
 
   @override
