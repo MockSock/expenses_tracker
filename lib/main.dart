@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
         // depricated, and offers a different set of
         // coloring options, so study later
         primarySwatch: Colors.green,
+
+        // Now use the font from pubspec.yaml
+        fontFamily: 'Quicksand',
       ),
       home: MyHomePage(),
     );
