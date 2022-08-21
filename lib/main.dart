@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/user_transaction.dart';
 import './widgets/new_transation.dart';
+import './models/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 'p1',
+      title: 'Apple',
+      amount: 1.75,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'c1',
+      title: 'TankTop',
+      amount: 5.25,
+      date: DateTime.now(),
+    ),
+  ];
+
+  void _addNewTransaction(String newTractTitle, double newTractAmount) {
+    final newTract = Transaction(
+      // Ususally you want to generate a unique
+      // value but the date works for now
+      id: DateTime.now().toString(),
+      title: newTractTitle,
+      amount: newTractAmount,
+      date: DateTime.now(),
+    );
+    setState(() {
+      _userTransactions.add(newTract);
+    });
+  }
+
   // Always will need the context of where the widget should go
   void startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
