@@ -22,8 +22,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  void startAddNewTransaction() {
-    return;
+  // Always will need the context of where the widget should go
+  // So it knows where to use the builder, with a differrent
+  // named context to be easier on the eyes
+  void startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(context: ctx, builder: builder);
   }
 
   @override
