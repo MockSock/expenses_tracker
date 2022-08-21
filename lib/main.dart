@@ -59,12 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // Always will need the context of where the widget should go
-  void startAddNewTransaction(BuildContext ctx) {
+  void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,
         // needs its own context
         builder: (bCtx) {
-          return NewTransaction(addTransaction);
+          return NewTransaction(_addNewTransaction);
         });
   }
 
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // and make core features easier to access
         actions: <Widget>[
           IconButton(
-            onPressed: startAddNewTransaction,
+            onPressed: _startAddNewTransaction(context),
             icon: const Icon(Icons.add),
           ),
         ],
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // visualize how the app will look
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: startAddNewTransaction,
+        onPressed: _startAddNewTransaction,
         child: const Icon(Icons.add),
       ),
     );
