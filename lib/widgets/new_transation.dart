@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
+  // Why make this change?
+
+  // Simply, widgets are treated differently than states
+  // State information is saved and can be brought back, so
+  // now when a user is clicking bewteen text fields, the
+  // information within them is saved.
   NewTransaction(this.addTransaction);
-  // Input Work
-  // Input values are always strings by default
-
-  // Controllers also are very useful,
-  // since they listen for input then save it
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
-
   final Function addTransaction;
+
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  // Input Work
+  final titleController = TextEditingController();
+
+  final amountController = TextEditingController();
 
   // This is a simple refactor to reduce redundency
   void submitData() {
@@ -24,7 +32,7 @@ class NewTransaction extends StatelessWidget {
       return;
     }
 
-    addTransaction(enteredTitle, enteredAmount);
+    widget.addTransaction(enteredTitle, enteredAmount);
   }
 
   @override
