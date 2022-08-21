@@ -33,6 +33,9 @@ class _NewTransactionState extends State<NewTransaction> {
     }
 
     widget.addTransaction(enteredTitle, enteredAmount);
+
+    // When the new transaction is made, it will get rid of the form
+    Navigator.of(context).pop();
   }
 
   @override
