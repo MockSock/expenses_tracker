@@ -31,7 +31,10 @@ class MyHomePage extends StatelessWidget {
         // We can add action buttons here,
         // and make core features easier to access
         actions: <Widget>[
-          IconButton(onPressed: onPressed, icon: icon),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          ),
         ],
       ),
       // this widget can only be on the Body element
