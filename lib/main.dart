@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Quicksand',
         // now anything that is a title will be themed as such
         textTheme: ThemeData.light().textTheme.copyWith(
-              titleMedium: const TextStyle(
+              headline6: const TextStyle(
                 fontFamily: 'OpenSans',
                 fontWeight: FontWeight.bold,
                 fontSize: 18,

@@ -50,7 +50,7 @@ class TransactionList extends StatelessWidget {
                     // \ is an escape character
                     // This makes it fixed to two decimal points, so it looks like currency
                     "\$${transactions[index].amount.toStringAsFixed(2)}",
-                    style: Theme.of(context).textTheme.titleMedium),
+                    style: Theme.of(context).textTheme.headline6),
               ),
               Column(
                 children: <Widget>[
