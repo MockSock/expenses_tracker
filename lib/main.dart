@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './widgets/transaction_list.dart';
-import './widgets/new_transation.dart';
+import './widgets/new_transaction.dart';
 import './models/transaction.dart';
 
 void main() {
@@ -14,9 +14,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personal Expenses',
       theme: ThemeData(
+        // Swatch will automatically generate
+        // different shades of the color given
+
+        // The tutorial uses accent color, which is
+        // deprecated, and offers a different set of
+        // coloring options, so study later
         primarySwatch: Colors.green,
+
+        // Now use the font from pubspec.yaml
+        fontFamily: 'Quicksand',
+        // now anything that is a title will be themed as such
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              bodyText1: const TextStyle(
+                // fill out rest later
+                fontSize: 14,
+              ),
+            ),
       ),
       home: MyHomePage(),
     );
@@ -46,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addNewTransaction(String newTractTitle, double newTractAmount) {
     final newTract = Transaction(
-      // Ususally you want to generate a unique
+      // Usually you want to generate a unique
       // value but the date works for now
       id: DateTime.now().toString(),
       title: newTractTitle,
@@ -78,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Widget Playground'),
+        title: const Text('Personal Expenses'),
 
         // We can add action buttons here,
         // and make core features easier to access
@@ -93,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // This is just a prestyled container that
+          // This is just a pre-styled container that
           // can wrap around other,more important widgets
           const Card(
             color: Colors.greenAccent,

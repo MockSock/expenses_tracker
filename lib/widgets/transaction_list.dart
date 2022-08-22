@@ -41,21 +41,16 @@ class TransactionList extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.amber,
+                    color: Theme.of(context).primaryColor,
                     width: 2,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  // \ is an escape character
-                  // This makes it fixed to two decimal points, so it looks like currency
-                  "\$${transactions[index].amount.toStringAsFixed(2)}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                    color: Colors.amber,
-                  ),
-                ),
+                    // \ is an escape character
+                    // This makes it fixed to two decimal points, so it looks like currency
+                    "\$${transactions[index].amount.toStringAsFixed(2)}",
+                    style: Theme.of(context).textTheme.headline6),
               ),
               Column(
                 children: <Widget>[
