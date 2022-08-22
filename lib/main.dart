@@ -33,6 +33,10 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
+              bodyText1: const TextStyle(
+                // fill out rest later
+                fontSize: 14,
+              ),
             ),
       ),
       home: MyHomePage(),
