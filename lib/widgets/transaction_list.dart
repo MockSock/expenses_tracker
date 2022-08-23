@@ -24,7 +24,7 @@ class TransactionList extends StatelessWidget {
               children: <Widget>[
                 Text(
                   style: Theme.of(context).textTheme.bodyText1,
-                  'No Transactions',
+                  'No Transactions Added Yet',
                 ),
                 Image.asset('empty-list'),
               ],
