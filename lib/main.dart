@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // Card will always take the size of its child
             // this means that you have to space it using
             // another Container widget.
-            child: FinanceChart(),
+            child: FinanceChart(_userTransactions),
           ),
 
           TransactionList(transactions: _userTransactions),
