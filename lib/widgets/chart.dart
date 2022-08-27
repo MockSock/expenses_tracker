@@ -19,6 +19,8 @@ class FinanceChart extends StatelessWidget {
         // if index = 1 then that would be yesterday
         Duration(days: index),
       );
+
+      double totalSum;
       // return a map
       // the E special constructor gives a shortcut for weekday
       return {'day': DateFormat.E(weekday), 'amount': '9.99'};
