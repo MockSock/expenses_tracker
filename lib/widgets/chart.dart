@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class FinanceChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Card(
+      elevation: 6,
+      margin: EdgeInsets.all(20),
       child: Text('I am the chart!'),
     );
   }
