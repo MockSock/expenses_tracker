@@ -23,7 +23,10 @@ class FinanceChart extends StatelessWidget {
       double totalSum;
 
       // i stands for Iteration
-      for (var i = 0; i < recentTransactions.length; i++) {}
+      for (var i = 0; i < recentTransactions.length; i++) {
+        // This will now check all the recent transactions
+        // for the day and move onto the next
+      }
       // return a map
       // the E special constructor gives a shortcut for weekday
       return {'day': DateFormat.E(weekday), 'amount': '9.99'};
