@@ -7,7 +7,9 @@ import '../models/transaction.dart';
 class FinanceChart extends StatelessWidget {
   FinanceChart(this.recentTransactions);
 
+  // get the last seven days so it can be displayed
   final List<Transaction> recentTransactions;
+
   List<Map<String, Object>> get groupedTransactionValues {
     // 7 is the length that index will take from
     return List.generate(7, (index) {
