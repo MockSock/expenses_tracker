@@ -22,7 +22,7 @@ class FinanceChart extends StatelessWidget {
 
       double totalSum = 0.0;
 
-      // i stands for Iteration
+      // i stands for Iterationan and this was the approach used because it is language agnostic
       for (var i = 0; i < recentTransactions.length; i++) {
         // This now breaks down the timestamps by the day, month, and year
         if (recentTransactions[i].date.day == weekDay.day &&
