@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:intl/intl.dart';
-
-import './transaction.dart';
+import './widgets/transaction_list.dart';
+import './widgets/new_transaction.dart';
+import './models/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,17 +14,43 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personal Expenses',
       theme: ThemeData(
+        // Swatch will automatically generate
+        // different shades of the color given
+
+        // The tutorial uses accent color, which is
+        // deprecated, and offers a different set of
+        // coloring options, so study later
         primarySwatch: Colors.green,
+
+        // Now use the font from pubspec.yaml
+        fontFamily: 'Quicksand',
+        // now anything that is a title will be themed as such
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              bodyText1: const TextStyle(
+                // fill out rest later
+                fontSize: 14,
+              ),
+            ),
       ),
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions = [
     Transaction(
       id: 'p1',
       title: 'Apple',
@@ -39,27 +65,56 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
-  // Input Work
-  // Input values are always strings by default
-  // late String titleController;
-  // late String amountController;
+  void _addNewTransaction(String newTractTitle, double newTractAmount) {
+    final newTract = Transaction(
+      // Usually you want to generate a unique
+      // value but the date works for now
+      id: DateTime.now().toString(),
+      title: newTractTitle,
+      amount: newTractAmount,
+      date: DateTime.now(),
+    );
+    setState(() {
+      _userTransactions.add(newTract);
+    });
+  }
 
-  // Controllers also are very useful,
-  // since they listen for input then save it
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
+  // Always will need the context of where the widget should go
+  void _startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        // needs its own context
+        builder: (bCtx) {
+          // This makes it so the new transaction can be canceled out of
+          // and
+          return GestureDetector(
+            onTap: () {},
+            behavior: HitTestBehavior.opaque,
+            child: NewTransaction(_addNewTransaction),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Widget Playground'),
+        title: const Text('Personal Expenses'),
+
+        // We can add action buttons here,
+        // and make core features easier to access
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => _startAddNewTransaction(context),
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // This is just a prestyled container that
+          // This is just a pre-styled container that
           // can wrap around other,more important widgets
           const Card(
             color: Colors.greenAccent,
@@ -73,112 +128,15 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
 
-          Card(
-            elevation: 5,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                // puts button on the right
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  TextField(
-                    // the controller will now track the value for you
-                    controller: titleController,
-                    // onChanged: (value) => titleController = value,
-                    decoration: const InputDecoration(labelText: 'Title'),
-                  ),
-                  TextField(
-                    controller: amountController,
-                    // onChanged: (value) => amountController = value,
-                    decoration: const InputDecoration(labelText: 'Amount'),
-                  ),
-
-                  // Submit Button
-                  TextButton(
-                    onPressed: () {
-                      print(titleController.text);
-                      print(amountController.text);
-                    },
-                    child: const Text(
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.green,
-                      ),
-                      'Add Transaction',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Transaction List
-          Column(
-            // this allows a list of objects to become
-            // widgets via a function within map
-            children: transactions.map((tx) {
-              return Card(
-                // Always think "What shoud be inside my Widget"
-                // This helps plan the layout of the widgets and
-                // keeps you moving in a concrete direction
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15,
-                      ),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.amber,
-                          width: 2,
-                        ),
-                      ),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        // \ is an escape character
-                        "\$${tx.amount}",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.amber,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            tx.title,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            // Easiest way to format and return as string
-                            DateFormat.yMMMd().format(tx.date),
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
-          ),
+          TransactionList(transactions: _userTransactions),
         ],
+      ),
+      // Just adding it down here to help
+      // visualize how the app will look
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _startAddNewTransaction(context),
+        child: const Icon(Icons.add),
       ),
     );
   }
