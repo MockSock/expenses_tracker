@@ -26,9 +26,16 @@ class TransactionList extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyText1,
                   'No Transactions Added Yet',
                 ),
-                Image.asset('empty-list'),
+                Container(
+                  height: 200,
+                  child: Image.asset(
+                    'empty-list',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             )
+          // Still runs this builder for some reason
           : ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (context, index) {
