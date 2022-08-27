@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
+import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
@@ -116,16 +117,13 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           // This is just a pre-styled container that
           // can wrap around other,more important widgets
-          const Card(
+          Card(
             color: Colors.greenAccent,
             elevation: 5,
             // Card will always take the size of its child
             // this means that you have to space it using
             // another Container widget.
-            child: SizedBox(
-              width: double.infinity,
-              child: Text('Chart will be here!'),
-            ),
+            child: FinanceChart(),
           ),
 
           TransactionList(transactions: _userTransactions),
