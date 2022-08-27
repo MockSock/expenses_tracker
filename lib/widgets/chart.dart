@@ -20,7 +20,8 @@ class FinanceChart extends StatelessWidget {
         Duration(days: index),
       );
       // return a map
-      return {'day': 'T', 'amount': '9.99'};
+      // the E special constructor gives a shortcut for weekday
+      return {'day': DateFormat.E(weekday), 'amount': '9.99'};
     });
   }
 
