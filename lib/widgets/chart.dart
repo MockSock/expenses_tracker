@@ -24,9 +24,10 @@ class FinanceChart extends StatelessWidget {
 
       // i stands for Iteration
       for (var i = 0; i < recentTransactions.length; i++) {
-        // This now breaks down the timestamps by the day and month
+        // This now breaks down the timestamps by the day, month, and year
         if (recentTransactions[i].date.day == weekday.day &&
-            recentTransactions[i].date.month == weekday.month) {}
+            recentTransactions[i].date.month == weekday.month &&
+            recentTransactions[i].date.year == weekday.year) {}
       }
       // return a map
       // the E special constructor gives a shortcut for weekday
