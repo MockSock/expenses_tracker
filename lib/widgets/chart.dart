@@ -14,7 +14,7 @@ class FinanceChart extends StatelessWidget {
   List<Map<String, Object>> get groupedTransactionValues {
     // 7 is the length that index will take from
     return List.generate(7, (index) {
-      final weekday = DateTime.now().subtract(
+      final weekDay = DateTime.now().subtract(
         // will now display based on the seven days
         // if index = 1 then that would be yesterday
         Duration(days: index),
@@ -25,16 +25,18 @@ class FinanceChart extends StatelessWidget {
       // i stands for Iteration
       for (var i = 0; i < recentTransactions.length; i++) {
         // This now breaks down the timestamps by the day, month, and year
-        if (recentTransactions[i].date.day == weekday.day &&
-            recentTransactions[i].date.month == weekday.month &&
-            recentTransactions[i].date.year == weekday.year) {
+        if (recentTransactions[i].date.day == weekDay.day &&
+            recentTransactions[i].date.month == weekDay.month &&
+            recentTransactions[i].date.year == weekDay.year) {
           // This takes the amount value and adds it to the current sum for the bar
           totalSum += recentTransactions[i].amount;
         }
       }
       // return a map
       // the E special constructor gives a shortcut for weekday
-      return {'day': DateFormat.E(weekday), 'amount': totalSum};
+      print(DateFormat.E(weekDay));
+      print(totalSum);
+      return {'day': DateFormat.E(weekDay), 'amount': totalSum};
     });
   }
 
