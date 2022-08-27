@@ -20,7 +20,7 @@ class FinanceChart extends StatelessWidget {
         Duration(days: index),
       );
 
-      double totalSum;
+      double totalSum = 0.0;
 
       // i stands for Iteration
       for (var i = 0; i < recentTransactions.length; i++) {
