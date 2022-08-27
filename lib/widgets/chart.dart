@@ -13,6 +13,7 @@ class FinanceChart extends StatelessWidget {
   List<Map<String, Object>> get groupedTransactionValues {
     // 7 is the length that index will take from
     return List.generate(7, (index) {
+      final weekday = DateTime.now();
       // return a map
       return {'day': 'T', 'amount': '9.99'};
     });
