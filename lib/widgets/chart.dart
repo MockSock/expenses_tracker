@@ -27,7 +27,10 @@ class FinanceChart extends StatelessWidget {
         // This now breaks down the timestamps by the day, month, and year
         if (recentTransactions[i].date.day == weekday.day &&
             recentTransactions[i].date.month == weekday.month &&
-            recentTransactions[i].date.year == weekday.year) {}
+            recentTransactions[i].date.year == weekday.year) {
+          // This takes the amount value and adds it to the current sum for the bar
+          totalSum += recentTransactions[i].amount;
+        }
       }
       // return a map
       // the E special constructor gives a shortcut for weekday
