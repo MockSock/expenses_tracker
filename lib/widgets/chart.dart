@@ -15,6 +15,7 @@ class FinanceChart extends StatelessWidget {
     return List.generate(7, (index) {
       final weekday = DateTime.now().subtract(
         // will now display based on the seven days
+        // if index = 1 then that would be yesterday
         Duration(days: index),
       );
       // return a map
