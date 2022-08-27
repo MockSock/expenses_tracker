@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 // This will stay stateless since it is just
 // displaying data that is passed down
 class FinanceChart extends StatelessWidget {
-  // Method to geenerate spending bars
+  List<Map<String, Object>> get groupedTransactionValues {}
+
   @override
   Widget build(BuildContext context) {
     return Card(
