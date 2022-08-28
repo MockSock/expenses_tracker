@@ -66,6 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
+  // getter for recent transactions
+  List<Transaction> get _recentTransaction {
+    return;
+  }
+
   void _addNewTransaction(String newTractTitle, double newTractAmount) {
     final newTract = Transaction(
       // Usually you want to generate a unique
