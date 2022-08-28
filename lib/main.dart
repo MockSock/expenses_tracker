@@ -115,17 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // This is just a pre-styled container that
-          // can wrap around other,more important widgets
-          Card(
-            color: Colors.greenAccent,
-            elevation: 5,
-            // Card will always take the size of its child
-            // this means that you have to space it using
-            // another Container widget.
-            child: FinanceChart(_userTransactions),
-          ),
-
+          FinanceChart(_userTransactions),
           TransactionList(transactions: _userTransactions),
         ],
       ),
