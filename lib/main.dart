@@ -68,7 +68,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // getter for recent transactions
   List<Transaction> get _recentTransaction {
-    return;
+    // when a certain condition is fulfilled,
+    // a new list is made for those specific items
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          const Duration(days: 7),
+        ),
+      );
+      // makes an iterable like above to a list
+    }).toList();
   }
 
   void _addNewTransaction(String newTractTitle, double newTractAmount) {
