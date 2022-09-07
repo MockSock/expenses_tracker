@@ -47,7 +47,7 @@ class FinanceChart extends StatelessWidget {
         // now show values that were derived
         children: groupedTransactionValues.map((data) {
           return Text(
-            '${data['day']}' ' : ' '${data['amount']}',
+            '${data['day']}: ${data['amount']}',
           );
         }).toList(),
       ),
