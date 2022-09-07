@@ -34,7 +34,11 @@ class FinanceChart extends StatelessWidget {
       }
       // return a map
       // the E special constructor gives a shortcut for weekday
-      return {'day': DateFormat.E(weekDay).format(weekDay), 'amount': totalSum};
+      return {
+        // return the first letter of the day
+        'day': DateFormat.E(weekDay).format(weekDay).substring(0, 1),
+        'amount': totalSum,
+      };
     });
   }
 
