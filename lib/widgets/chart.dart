@@ -45,6 +45,7 @@ class FinanceChart extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       child: Row(
         // now show values that were derived
+        // overflow issue due to large amount of data
         children: groupedTransactionValues.map((data) {
           return Text(
             '${data['day']}: ${data['amount']}',
