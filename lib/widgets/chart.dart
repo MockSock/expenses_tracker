@@ -44,7 +44,12 @@ class FinanceChart extends StatelessWidget {
       elevation: 6,
       margin: const EdgeInsets.all(20),
       child: Row(
-        children: <Widget>[],
+        // now show values that were derived
+        children: groupedTransactionValues.map((data) {
+          return Text(
+            data['day'] + ' : ' + data['amount'].toString(),
+          );
+        }).toList(),
       ),
     );
   }
