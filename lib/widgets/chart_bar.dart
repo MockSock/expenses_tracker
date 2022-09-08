@@ -11,6 +11,11 @@ class ChartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: <Widget>[
+        // Say spending total for day with no decimals
+        Text('\$${spendingAmount.toStringAsFixed(0)}'),
+      ],
+    );
   }
 }
