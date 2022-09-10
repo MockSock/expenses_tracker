@@ -20,7 +20,13 @@ class ChartBar extends StatelessWidget {
         Container(
           height: 60,
           width: 10,
-          child: Stack(),
+          // allows for widgets to stack on top of
+          // each other creating a three dimentional space
+          child: Stack(
+            children: <Widget>[
+              // Bottom to top
+            ],
+          ),
         ),
         const SizedBox(height: 4),
         Text(label),
