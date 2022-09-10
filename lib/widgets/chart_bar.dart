@@ -25,6 +25,17 @@ class ChartBar extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               // Bottom to top
+              Container(
+                // can also use Color.fromRGBO()
+                // to make custom colors
+                color: Colors.blueGrey,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
+                ),
+              )
             ],
           ),
         ),
