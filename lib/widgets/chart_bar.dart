@@ -20,8 +20,7 @@ class ChartBar extends StatelessWidget {
         Container(
           height: 60,
           width: 10,
-          // figure out how to change color later
-          child: null,
+          child: Stack(),
         ),
         const SizedBox(height: 4),
         Text(label),
