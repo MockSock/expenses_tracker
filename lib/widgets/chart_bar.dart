@@ -15,6 +15,14 @@ class ChartBar extends StatelessWidget {
       children: <Widget>[
         // Say spending total for day with no decimals
         Text('\$${spendingAmount.toStringAsFixed(0)}'),
+        // For spacing
+        const SizedBox(height: 4),
+        Container(
+          height: 60,
+          width: 10,
+          // figure out how to change color later
+          child: null,
+        ),
       ],
     );
   }
