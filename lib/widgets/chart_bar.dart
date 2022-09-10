@@ -23,6 +23,7 @@ class ChartBar extends StatelessWidget {
           // figure out how to change color later
           child: null,
         ),
+        const SizedBox(height: 4),
       ],
     );
   }
