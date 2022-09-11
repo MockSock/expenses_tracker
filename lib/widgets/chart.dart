@@ -59,16 +59,18 @@ class FinanceChart extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       child: Row(
         // now show values that were derived
-        // overflow issue due to large amount of data
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: groupedTransactionValues.map((data) {
           // often dart can be unsure of what values are coming out of an object,
           // so casting it as the expected value helps clarify things
-          return ChartBar(
-            data['day'].toString(),
-            (data['amount'] as double),
-            totalSpending == 0.0
-                ? 0.0
-                : (data['amount'] as double) / totalSpending,
+          return Flexible(
+            child: ChartBar(
+              data['day'].toString(),
+              (data['amount'] as double),
+              totalSpending == 0.0
+                  ? 0.0
+                  : (data['amount'] as double) / totalSpending,
+            ),
           );
         }).toList(),
       ),
