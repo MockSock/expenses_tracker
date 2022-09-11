@@ -43,6 +43,15 @@ class FinanceChart extends StatelessWidget {
     });
   }
 
+  double get maxSpending {
+    // the 0.0 is the new start sum
+    // research fold and what it does
+    return groupedTransactionValues.fold(0.0, (sum, item) {
+      // need to return new sum
+      return sum;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
