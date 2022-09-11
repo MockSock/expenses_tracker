@@ -64,6 +64,9 @@ class FinanceChart extends StatelessWidget {
           // often dart can be unsure of what values are coming out of an object,
           // so casting it as the expected value helps clarify things
           return Flexible(
+            // All of the boxes now share the
+            // space evenly between them
+            fit: FlexFit.tight,
             child: ChartBar(
               data['day'].toString(),
               (data['amount'] as double),
