@@ -52,9 +52,7 @@ class FinanceChart extends StatelessWidget {
         // now show values that were derived
         // overflow issue due to large amount of data
         children: groupedTransactionValues.map((data) {
-          return Text(
-            '${data['day']}: ${data['amount']}',
-          );
+          return ChartBar(label, spendingAmount, totalBudgetPercent);
         }).toList(),
       ),
     );
