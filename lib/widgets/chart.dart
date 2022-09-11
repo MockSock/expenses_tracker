@@ -66,7 +66,9 @@ class FinanceChart extends StatelessWidget {
           return ChartBar(
             data['day'].toString(),
             (data['amount'] as double),
-            totalSpending,
+            totalSpending == 0.0
+                ? 0.0
+                : (data['amount'] as double) / totalSpending,
           );
         }).toList(),
       ),
