@@ -35,7 +35,13 @@ class ChartBar extends StatelessWidget {
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(20)),
-              )
+              ),
+              // This box will now be a portion of
+              // its parent widget in size
+              FractionallySizedBox(
+                // this is so as the budget gets used up more, the box fills
+                heightFactor: totalBudgetPercent,
+              ),
             ],
           ),
         ),
