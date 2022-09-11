@@ -30,11 +30,11 @@ class ChartBar extends StatelessWidget {
                 // to make custom colors
                 color: Colors.blueGrey,
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                ),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(20)),
               )
             ],
           ),
