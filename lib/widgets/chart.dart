@@ -48,7 +48,7 @@ class FinanceChart extends StatelessWidget {
     // research fold and what it does
     return groupedTransactionValues.fold(0.0, (sum, item) {
       // need to return new sum
-      return sum;
+      return sum + (item['amount'] as double);
     });
   }
 
