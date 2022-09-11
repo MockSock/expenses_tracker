@@ -14,7 +14,10 @@ class ChartBar extends StatelessWidget {
     return Column(
       children: <Widget>[
         // Say spending total for day with no decimals
-        Text('\$${spendingAmount.toStringAsFixed(0)}'),
+        FittedBox(
+          // Makes it so there are no line breaks
+          child: Text('\$${spendingAmount.toStringAsFixed(0)}'),
+        ),
         // For spacing
         const SizedBox(height: 4),
         Container(
