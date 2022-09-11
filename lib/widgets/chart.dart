@@ -43,7 +43,7 @@ class FinanceChart extends StatelessWidget {
     });
   }
 
-  double get maxSpending {
+  double get totalSpending {
     // the 0.0 is the new start sum
     // research fold and what it does
     return groupedTransactionValues.fold(0.0, (sum, item) {
