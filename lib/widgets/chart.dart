@@ -57,7 +57,7 @@ class FinanceChart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: const EdgeInsets.all(20),
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.all(8),
         child: Row(
           // now show values that were derived
