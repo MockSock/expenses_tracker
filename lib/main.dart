@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
+import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
@@ -65,6 +66,20 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
+  // getter for recent transactions
+  List<Transaction> get _recentTransaction {
+    // when a certain condition is fulfilled,
+    // a new list is made for those specific items
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          const Duration(days: 7),
+        ),
+      );
+      // makes an iterable like above to a list
+    }).toList();
+  }
+
   void _addNewTransaction(String newTractTitle, double newTractAmount) {
     final newTract = Transaction(
       // Usually you want to generate a unique
@@ -114,20 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // This is just a pre-styled container that
-          // can wrap around other,more important widgets
-          const Card(
-            color: Colors.greenAccent,
-            elevation: 5,
-            // Card will always take the size of its child
-            // this means that you have to space it using
-            // another Container widget.
-            child: SizedBox(
-              width: double.infinity,
-              child: Text('Chart will be here!'),
-            ),
-          ),
-
+          FinanceChart(_userTransactions),
           TransactionList(transactions: _userTransactions),
         ],
       ),
