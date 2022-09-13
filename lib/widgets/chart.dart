@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
+import './chart_bar.dart';
 
 // This will stay stateless since it is just
 // displaying data that is passed down
@@ -34,7 +35,20 @@ class FinanceChart extends StatelessWidget {
       }
       // return a map
       // the E special constructor gives a shortcut for weekday
-      return {'day': DateFormat.E(weekDay).format(weekDay), 'amount': totalSum};
+      return {
+        // return the first letter of the day
+        'day': DateFormat.E(weekDay).format(weekDay).substring(0, 1),
+        'amount': totalSum,
+      };
+    });
+  }
+
+  double get totalSpending {
+    // the 0.0 is the new start sum
+    // research fold and what it does
+    return groupedTransactionValues.fold(0.0, (sum, item) {
+      // need to return new sum
+      return sum + (item['amount'] as double);
     });
   }
 
@@ -43,8 +57,28 @@ class FinanceChart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: const EdgeInsets.all(20),
-      child: Row(
-        children: <Widget>[],
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          // now show values that were derived
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactionValues.map((data) {
+            // often dart can be unsure of what values are coming out of an object,
+            // so casting it as the expected value helps clarify things
+            return Flexible(
+              // All of the boxes now share the
+              // space evenly between them
+              fit: FlexFit.tight,
+              child: ChartBar(
+                data['day'].toString(),
+                (data['amount'] as double),
+                totalSpending == 0.0
+                    ? 0.0
+                    : (data['amount'] as double) / totalSpending,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
