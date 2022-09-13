@@ -68,6 +68,15 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
 
             // Date Picker Button
+            Row(
+              children: <Widget>[
+                const Text('No Date Chosen'),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Pick a Date'),
+                ),
+              ],
+            ),
 
             // Submit Button
             TextButton(
