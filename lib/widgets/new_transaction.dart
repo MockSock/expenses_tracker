@@ -67,10 +67,12 @@ class _NewTransactionState extends State<NewTransaction> {
               onSubmitted: (_) => submitData(),
             ),
 
+            // Date Picker Button
+
             // Submit Button
             TextButton(
               onPressed: submitData,
-              child: Text(
+              child: const Text(
                 'Add Transaction',
                 style: TextStyle(
                   fontSize: 20,
