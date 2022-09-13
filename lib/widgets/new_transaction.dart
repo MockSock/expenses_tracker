@@ -40,6 +40,10 @@ class _NewTransactionState extends State<NewTransaction> {
     Navigator.of(context).pop();
   }
 
+  void datePicker() {
+    return;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
