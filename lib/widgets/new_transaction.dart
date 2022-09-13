@@ -83,7 +83,7 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
 
             // Submit Button
-            TextButton(
+            ElevatedButton(
               onPressed: submitData,
               child: const Text(
                 'Add Transaction',
