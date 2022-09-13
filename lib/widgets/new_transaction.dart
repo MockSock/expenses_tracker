@@ -73,7 +73,11 @@ class _NewTransactionState extends State<NewTransaction> {
                 const Text('No Date Chosen'),
                 TextButton(
                   onPressed: () {},
-                  child: const Text('Pick a Date'),
+                  child: const Text(
+                    'Pick a Date',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.green),
+                  ),
                 ),
               ],
             ),
