@@ -89,7 +89,7 @@ class _NewTransactionState extends State<NewTransaction> {
               children: <Widget>[
                 const Text('No Date Chosen'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: datePicker,
                   child: const Text(
                     'Pick a Date',
                     style: TextStyle(
