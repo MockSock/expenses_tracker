@@ -98,24 +98,28 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
 
             // Date Picker Button
-            Row(
-              // sets the date at the end
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Text(
-                  _chosenDate == null
-                      ? 'No Date Chosen'
-                      : 'Picked Date: ${DateFormat.yMd().format(_chosenDate!)}',
-                ),
-                TextButton(
-                  onPressed: datePicker,
-                  child: const Text(
-                    'Pick a Date',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.green),
+            // Will take up as much
+            // space as possible
+            Expanded(
+              child: Row(
+                // sets the date at the end
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    _chosenDate == null
+                        ? 'No Date Chosen'
+                        : 'Picked Date: ${DateFormat.yMd().format(_chosenDate!)}',
                   ),
-                ),
-              ],
+                  TextButton(
+                    onPressed: datePicker,
+                    child: const Text(
+                      'Pick a Date',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.green),
+                    ),
+                  ),
+                ],
+              ),
             ),
 
             // Submit Button
