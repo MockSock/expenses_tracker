@@ -22,8 +22,7 @@ class _NewTransactionState extends State<NewTransaction> {
   final _amountController = TextEditingController();
 
   // This is to store chosen dates for different transactions
-  // Is for current time in case nothing is grabbed
-  DateTime _chosenDate = DateTime.now();
+  DateTime? _chosenDate;
 
   // This is a simple refactor to reduce redundency
   void submitData() {
@@ -100,11 +99,13 @@ class _NewTransactionState extends State<NewTransaction> {
 
             // Date Picker Button
             Row(
+              // sets the date at the end
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Text(
                   _chosenDate == null
                       ? 'No Date Chosen'
-                      : 'Picked Date: ${DateFormat.yMd().format(_chosenDate)}',
+                      : 'Picked Date: ${DateFormat.yMd().format(_chosenDate!)}',
                 ),
                 TextButton(
                   onPressed: datePicker,
