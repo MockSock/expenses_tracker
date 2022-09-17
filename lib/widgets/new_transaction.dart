@@ -20,12 +20,14 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final _amountController = TextEditingController();
 
+  // This is to stoere chosen dates for different transactions
+  DateTime _chosenDate;
+
   // This is a simple refactor to reduce redundency
   void submitData() {
     // we can now use these variables to check for values
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
-
     // Validation
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       // empty returns stop the funtion before
@@ -58,6 +60,8 @@ class _NewTransactionState extends State<NewTransaction> {
       if (pickedDate == null) {
         return;
       }
+
+      _chosenDate = pickedDate;
     });
 
     print('Loading Date');
