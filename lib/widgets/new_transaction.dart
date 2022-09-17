@@ -62,11 +62,12 @@ class _NewTransactionState extends State<NewTransaction> {
         return;
       }
 
-      _chosenDate = pickedDate;
+      setState(() {
+        _chosenDate = pickedDate;
+      });
     });
 
     print('Loading Date');
-    // Navigator.of(context).pop();
   }
 
   @override
