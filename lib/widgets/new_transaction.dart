@@ -102,8 +102,6 @@ class _NewTransactionState extends State<NewTransaction> {
             // space as possible
             Expanded(
               child: Row(
-                // sets the date at the end
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
                     _chosenDate == null
