@@ -16,15 +16,15 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   // Input Work
-  final titleController = TextEditingController();
+  final _titleController = TextEditingController();
 
-  final amountController = TextEditingController();
+  final _amountController = TextEditingController();
 
   // This is a simple refactor to reduce redundency
   void submitData() {
     // we can now use these variables to check for values
-    final enteredTitle = titleController.text;
-    final enteredAmount = double.parse(amountController.text);
+    final enteredTitle = _titleController.text;
+    final enteredAmount = double.parse(_amountController.text);
 
     // Validation
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
@@ -52,8 +52,15 @@ class _NewTransactionState extends State<NewTransaction> {
       firstDate: DateTime(2019),
       // last day should always be the current day
       lastDate: DateTime.now(),
-    );
+    ).then((pickedDate) {
+      // Since this is a future, we have a loading message
+      // Now we can verify data being changed and processes finishing
+      if (pickedDate == null) {
+        return;
+      }
+    });
 
+    print('Loading Date');
     // Navigator.of(context).pop();
   }
 
@@ -69,7 +76,7 @@ class _NewTransactionState extends State<NewTransaction> {
           children: <Widget>[
             TextField(
               // the controller will now track the value for you
-              controller: titleController,
+              controller: _titleController,
               decoration: const InputDecoration(labelText: 'Title'),
               // needs paranthesis for when validation is there so it runs
               onSubmitted: (_) => submitData(),
@@ -77,7 +84,7 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               // Allows the keyboard to be locked to a number pad
               keyboardType: TextInputType.number,
-              controller: amountController,
+              controller: _amountController,
               decoration: const InputDecoration(labelText: 'Amount'),
               // convention states that you use an underscore
               // to use on one time variables like this parameter
