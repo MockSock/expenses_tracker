@@ -44,10 +44,17 @@ class _NewTransactionState extends State<NewTransaction> {
     // This will show an overlay that
     // allows the date to be picked
     showDatePicker(
-        context: context,
-        initialDate: initialDate,
-        firstDate: firstDate,
-        lastDate: lastDate);
+      context: context,
+      // Need a start point for user to manipulate
+      initialDate: DateTime.now(),
+      // just giving a dummy older date
+      // this is january 1st 2019
+      firstDate: DateTime(2019),
+      // last day should always be the current day
+      lastDate: DateTime.now(),
+    );
+
+    // Navigator.of(context).pop();
   }
 
   @override
