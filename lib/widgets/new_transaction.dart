@@ -41,7 +41,13 @@ class _NewTransactionState extends State<NewTransaction> {
   }
 
   void datePicker() {
-    return;
+    // This will show an overlay that
+    // allows the date to be picked
+    showDatePicker(
+        context: context,
+        initialDate: initialDate,
+        firstDate: firstDate,
+        lastDate: lastDate);
   }
 
   @override
