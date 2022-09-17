@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   // Why make this change?
@@ -20,7 +21,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final _amountController = TextEditingController();
 
-  // This is to stoere chosen dates for different transactions
+  // This is to store chosen dates for different transactions
   DateTime _chosenDate;
 
   // This is a simple refactor to reduce redundency
@@ -98,7 +99,11 @@ class _NewTransactionState extends State<NewTransaction> {
             // Date Picker Button
             Row(
               children: <Widget>[
-                const Text('No Date Chosen'),
+                Text(
+                  _chosenDate == null
+                      ? 'No Date Chosen'
+                      : _chosenDate.toString(),
+                ),
                 TextButton(
                   onPressed: datePicker,
                   child: const Text(
