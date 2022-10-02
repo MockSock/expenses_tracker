@@ -30,7 +30,7 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
     // Validation
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _chosenDate == null) {
       // empty returns stop the funtion before
       // the rest of the code is ran
       return;
