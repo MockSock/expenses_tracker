@@ -95,6 +95,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _deleteTransaction() {
+    return;
+  }
+
   // Always will need the context of where the widget should go
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
