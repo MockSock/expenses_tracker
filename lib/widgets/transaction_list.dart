@@ -105,7 +105,8 @@ class TransactionList extends StatelessWidget {
                         icon: const Icon(Icons.delete),
                         // defaults to red but an be changed in theme
                         color: Theme.of(context).errorColor,
-                        onPressed: deleteTransaction(transactions[index].id),
+                        onPressed: () =>
+                            deleteTransaction(transactions[index].id),
                       ),
                     ],
                   ),
