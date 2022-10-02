@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
       : super(key: key);
 
   final List<Transaction> transactions;
-  VoidCallback deleteTransaction;
+  Function(String) deleteTransaction;
 
   @override
   Widget build(BuildContext context) {
