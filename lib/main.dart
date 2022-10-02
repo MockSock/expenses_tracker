@@ -95,8 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _deleteTransaction() {
-    return;
+  void _deleteTransaction(String id) {
+    // this will take the current id and delete it off the list
+    setState(() {
+      _userTransactions.removeWhere((transaction) => transaction.id == id);
+    });
   }
 
   // Always will need the context of where the widget should go
