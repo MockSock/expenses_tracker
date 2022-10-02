@@ -36,7 +36,7 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
 
-    widget.addTransaction(enteredTitle, enteredAmount);
+    widget.addTransaction(enteredTitle, enteredAmount, _chosenDate);
 
     // When the new transaction is made,
     // it will get rid of the form
