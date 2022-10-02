@@ -9,7 +9,7 @@ class TransactionList extends StatelessWidget {
 
   // Simply put, the parent widget will rebuild this widget,
   // making this being stateful redundant and unneeded clutter
-  const TransactionList(
+  TransactionList(
       {Key? key, required this.transactions, required this.deleteTransaction})
       : super(key: key);
 
