@@ -9,18 +9,18 @@ class TransactionList extends StatelessWidget {
 
   // Simply put, the parent widget will rebuild this widget,
   // making this being stateful redundant and unneeded clutter
-  TransactionList(
+  const TransactionList(
       {Key? key, required this.transactions, required this.deleteTransaction})
       : super(key: key);
 
   final List<Transaction> transactions;
-  Function(String) deleteTransaction;
+  final Function deleteTransaction;
 
   @override
   Widget build(BuildContext context) {
     // This automatically gives scrolling functionality, but needs
     // a container that gives it a fixed height, otherwise it is infinite
-    return Container(
+    return SizedBox(
       height: 300,
       child: transactions.isEmpty
           ? Column(
