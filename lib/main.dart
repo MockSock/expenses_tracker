@@ -83,12 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _addNewTransaction(
       String newTractTitle, double newTractAmount, DateTime newTractDate) {
     final newTract = Transaction(
-        // Usually you want to generate a unique
-        // value but the date works for now
-        id: DateTime.now().toString(),
-        title: newTractTitle,
-        amount: newTractAmount,
-        date: newTractDate);
+      // Usually you want to generate a unique
+      // value but the date works for now
+      id: DateTime.now().toString(),
+      title: newTractTitle,
+      amount: newTractAmount,
+      date: newTractDate,
+    );
     setState(() {
       _userTransactions.add(newTract);
     });
