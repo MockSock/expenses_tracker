@@ -9,9 +9,12 @@ class TransactionList extends StatelessWidget {
 
   // Simply put, the parent widget will rebuild this widget,
   // making this being stateful redundant and unneeded clutter
-  TransactionList({Key? key, required this.transactions}) : super(key: key);
+  TransactionList(
+      {Key? key, required this.transactions, required this.deleteTransaction})
+      : super(key: key);
 
   final List<Transaction> transactions;
+  VoidCallback deleteTransaction;
 
   @override
   Widget build(BuildContext context) {
