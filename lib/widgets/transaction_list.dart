@@ -98,7 +98,10 @@ class TransactionList extends StatelessWidget {
                         ],
                       ),
                       // Delete button
-                      IconButton(),
+                      IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 );
