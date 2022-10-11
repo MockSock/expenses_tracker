@@ -138,11 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           FinanceChart(_userTransactions),
-          Expanded(
-            child: TransactionList(
-              transactions: _userTransactions,
-              deleteTransaction: _deleteTransaction,
-            ),
+          TransactionList(
+            transactions: _userTransactions,
+            deleteTransaction: _deleteTransaction,
           ),
         ],
       ),
