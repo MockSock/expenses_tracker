@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
@@ -24,7 +22,7 @@ class ChartBar extends StatelessWidget {
           height: 60,
           width: 10,
           // allows for widgets to stack on top of
-          // each other creating a three dimentional space
+          // each other creating a three dimensional space
           child: Stack(
             children: <Widget>[
               // Bottom to top

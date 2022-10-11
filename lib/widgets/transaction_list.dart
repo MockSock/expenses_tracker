@@ -20,7 +20,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     // This automatically gives scrolling functionality, but needs
     // a container that gives it a fixed height, otherwise it is infinite
-    return SizedBox(
+    return Container(
       height: 300,
       child: transactions.isEmpty
           ? Column(
@@ -91,7 +91,8 @@ class TransactionList extends StatelessWidget {
                             child: Text(
                               // Easiest way to format and return as string
                               DateFormat.yMMMd()
-                                  .format(transactions[index].date),
+                                  .format(transactions[index].date)
+                                  .toString(),
                               style: const TextStyle(
                                 fontSize: 14.0,
                                 fontStyle: FontStyle.italic,
