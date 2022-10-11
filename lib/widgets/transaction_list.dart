@@ -18,8 +18,8 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // This automatically gives scrolling functionality, but needs
-    // a container that gives it a fixed height, otherwise it is infinite
+    // This causes an issue in which the container with a fixed height is not accepting the
+    // listview.buileer, which will always be infinite, causing the app to crash
     return Container(
       height: 300,
       child: transactions.isEmpty

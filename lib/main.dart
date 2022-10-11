@@ -134,7 +134,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
+        // The module ended here, but I am not happy with this app
+        // It doesn't even run, which means I can't test it
+
+        // So the goal is to get it running, the first issue
+        // comes in how the transaction list works
+        // This is explained in transaction_list.dart
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           FinanceChart(_userTransactions),
