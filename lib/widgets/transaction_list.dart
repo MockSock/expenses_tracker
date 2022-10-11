@@ -9,9 +9,12 @@ class TransactionList extends StatelessWidget {
 
   // Simply put, the parent widget will rebuild this widget,
   // making this being stateful redundant and unneeded clutter
-  TransactionList({Key? key, required this.transactions}) : super(key: key);
+  TransactionList(
+      {Key? key, required this.transactions, required this.deleteTransaction})
+      : super(key: key);
 
   final List<Transaction> transactions;
+  final Function deleteTransaction;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,8 @@ class TransactionList extends StatelessWidget {
                             child: Text(
                               // Easiest way to format and return as string
                               DateFormat.yMMMd()
-                                  .format(transactions[index].date),
+                                  .format(transactions[index].date)
+                                  .toString(),
                               style: const TextStyle(
                                 fontSize: 14.0,
                                 fontStyle: FontStyle.italic,
@@ -96,6 +100,14 @@ class TransactionList extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                      // Delete button
+                      IconButton(
+                        icon: const Icon(Icons.delete),
+                        // defaults to red but an be changed in theme
+                        color: Theme.of(context).errorColor,
+                        onPressed: () =>
+                            deleteTransaction(transactions[index].id),
                       ),
                     ],
                   ),
