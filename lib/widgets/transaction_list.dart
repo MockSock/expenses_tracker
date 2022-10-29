@@ -21,7 +21,7 @@ class TransactionList extends StatelessWidget {
     // This causes an issue in which the container with a fixed height is not accepting the
     // listview.buileer, which will always be infinite, causing the app to crash
     return Container(
-      height: 300,
+      height: MediaQuery.of(context).size.height,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
