@@ -120,19 +120,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Personal Expenses'),
+    // By making a custom one, the object can be called and manipulated more
+    // easily, and let's the experience within the app be more unique
+    final customAppBar = AppBar(
+      title: const Text('Personal Expenses'),
 
-        // We can add action buttons here,
-        // and make core features easier to access
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => _startAddNewTransaction(context),
-            icon: const Icon(Icons.add),
-          ),
-        ],
-      ),
+      // We can add action buttons here,
+      // and make core features easier to access
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _startAddNewTransaction(context),
+          icon: const Icon(Icons.add),
+        ),
+      ],
+    );
+    return Scaffold(
+      appBar: customAppBar,
       body: Column(
         // The module ended here, but I am not happy with this app
         // It doesn't even run, which means I can't test it
