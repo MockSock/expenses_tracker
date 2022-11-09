@@ -153,9 +153,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 0.4,
             child: FinanceChart(_userTransactions),
           ),
-          TransactionList(
-            transactions: _userTransactions,
-            deleteTransaction: _deleteTransaction,
+          Container(
+            height: (MediaQuery.of(context).size.height -
+                    customAppBar.preferredSize.height) *
+                0.6,
+            child: TransactionList(
+              transactions: _userTransactions,
+              deleteTransaction: _deleteTransaction,
+            ),
           ),
         ],
       ),
