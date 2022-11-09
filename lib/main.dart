@@ -145,7 +145,14 @@ class _MyHomePageState extends State<MyHomePage> {
         // This is explained in transaction_list.dart
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          FinanceChart(_userTransactions),
+          // Sizing can be done dynamically here, simplifying the code
+          // and utilizing unique styling easier
+          Container(
+            height: (MediaQuery.of(context).size.height -
+                    customAppBar.preferredSize.height) *
+                0.4,
+            child: FinanceChart(_userTransactions),
+          ),
           TransactionList(
             transactions: _userTransactions,
             deleteTransaction: _deleteTransaction,
