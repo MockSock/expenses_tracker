@@ -70,7 +70,11 @@ class FinanceChart extends StatelessWidget {
               // space evenly between them
               fit: FlexFit.tight,
               child: ChartBar(
-                data['day'].toString(),
+                // find a way to simplify this vomit
+                DateFormat.E(data['day'])
+                    .format(data['day'] as DateTime)
+                    .toString(),
+                // data['day'].toString(),
                 (data['amount'] as double),
                 totalSpending == 0.0
                     ? 0.0

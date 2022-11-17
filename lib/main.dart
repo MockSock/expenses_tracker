@@ -52,18 +52,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 'p1',
-      title: 'Apple',
-      amount: 1.75,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'c1',
-      title: 'TankTop',
-      amount: 5.25,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 'p1',
+    //   title: 'Apple',
+    //   amount: 1.75,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 'c1',
+    //   title: 'TankTop',
+    //   amount: 5.25,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   // getter for recent transactions
@@ -120,19 +120,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Personal Expenses'),
+    // By making a custom one, the object can be called and manipulated more
+    // easily, and let's the experience within the app be more unique
+    final customAppBar = AppBar(
+      title: const Text('Personal Expenses'),
 
-        // We can add action buttons here,
-        // and make core features easier to access
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => _startAddNewTransaction(context),
-            icon: const Icon(Icons.add),
-          ),
-        ],
-      ),
+      // We can add action buttons here,
+      // and make core features easier to access
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _startAddNewTransaction(context),
+          icon: const Icon(Icons.add),
+        ),
+      ],
+    );
+    return Scaffold(
+      appBar: customAppBar,
       body: Column(
         // The module ended here, but I am not happy with this app
         // It doesn't even run, which means I can't test it
@@ -142,10 +145,22 @@ class _MyHomePageState extends State<MyHomePage> {
         // This is explained in transaction_list.dart
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          FinanceChart(_userTransactions),
-          TransactionList(
-            transactions: _userTransactions,
-            deleteTransaction: _deleteTransaction,
+          // Sizing can be done dynamically here, simplifying the code
+          // and utilizing unique styling easier
+          Container(
+            height: (MediaQuery.of(context).size.height -
+                    customAppBar.preferredSize.height) *
+                0.3,
+            child: FinanceChart(_userTransactions),
+          ),
+          Container(
+            height: (MediaQuery.of(context).size.height -
+                    customAppBar.preferredSize.height) *
+                0.7,
+            child: TransactionList(
+              transactions: _userTransactions,
+              deleteTransaction: _deleteTransaction,
+            ),
           ),
         ],
       ),
