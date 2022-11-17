@@ -7,11 +7,12 @@ import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
-  // You can limit the mode in which the app runs
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitUp,
-  ]);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // // You can limit the mode in which the app runs
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
   runApp(const MyApp());
 }
 
