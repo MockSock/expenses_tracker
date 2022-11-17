@@ -154,8 +154,13 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 const Text('Show Finance Chart'),
                 Switch(
-                  value: true,
-                  onChanged: (value) {},
+                  value: _showChart,
+                  // Will only accept bool values
+                  onChanged: (val) {
+                    setState(() {
+                      _showChart = val;
+                    });
+                  },
                 ),
               ],
             ),
