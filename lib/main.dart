@@ -148,9 +148,12 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('Show Finance Chart'),
-                Switch(),
+                Switch(
+                  value: true,
+                ),
               ],
             ),
             // Sizing can be done dynamically here, simplifying the code
