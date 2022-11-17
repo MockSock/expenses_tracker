@@ -13,19 +13,24 @@ class ChartBar extends StatelessWidget {
       // Why use this builder?
 
       // This builder will take the context of the parent widget
-      // and space the child widget accordingly. This allows spacing
-      // to occur past the confines of the phone and utilize the box methodology
+      // and set it within the constraints explicitly. This allows spacing
+      // to occur past the confines of the phone and utilize
+      // the box methodology
       return Column(
         children: <Widget>[
           // Say spending total for day with no decimals
-          FittedBox(
-            // Makes it so there are no line breaks
-            child: Text('\$${spendingAmount.toStringAsFixed(0)}'),
+          Container(
+            height: 20,
+            child: FittedBox(
+              // Makes it so there are no line breaks
+              child: Text('\$${spendingAmount.toStringAsFixed(0)}'),
+            ),
           ),
           // For spacing
           const SizedBox(height: 4),
           Container(
-            height: 60,
+            // This max height is now called instead of MediaQuery
+            height: constraints.maxHeight,
             width: 10,
             // allows for widgets to stack on top of
             // each other creating a three dimensional space
