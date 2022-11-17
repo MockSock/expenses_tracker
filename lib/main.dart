@@ -147,6 +147,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text('Show Finance Chart'),
+                Switch(),
+              ],
+            ),
             // Sizing can be done dynamically here, simplifying the code
             // and utilizing unique styling easier
             Container(
