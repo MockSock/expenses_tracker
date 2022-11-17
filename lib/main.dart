@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  bool _showChart = false;
+
   // getter for recent transactions
   List<Transaction> get _recentTransaction {
     // when a certain condition is fulfilled,
@@ -150,9 +152,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Show Finance Chart'),
+                const Text('Show Finance Chart'),
                 Switch(
                   value: true,
+                  onChanged: (value) {},
                 ),
               ],
             ),
