@@ -145,12 +145,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: customAppBar,
       body: SingleChildScrollView(
         child: Column(
-          // The module ended here, but I am not happy with this app
-          // It doesn't even run, which means I can't test it
-
-          // So the goal is to get it running, the first issue
-          // comes in how the transaction list works
-          // This is explained in transaction_list.dart
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             // Sizing can be done dynamically here, simplifying the code

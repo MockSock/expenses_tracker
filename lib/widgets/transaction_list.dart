@@ -37,14 +37,13 @@ class TransactionList extends StatelessWidget {
               ),
             ],
           )
-        // Still runs this builder for some reason
         : ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (context, index) {
               // index will now track the specific trnasaction,
               // letting flutter call for data based on the index
               return Card(
-                // Always think "What shoud be inside my Widget"
+                // Always think "What should be inside my Widget"
                 // This helps plan the layout of the widgets and
                 // keeps you moving in a concrete direction
                 child: Row(
