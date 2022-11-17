@@ -10,6 +10,11 @@ class ChartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      // Why use this builder?
+
+      // This builder will take the context of the parent widget
+      // and space the child widget accordingly. This allows spacing
+      // to occur past the confines of the phone and utilize the box methodology
       return Column(
         children: <Widget>[
           // Say spending total for day with no decimals
