@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
@@ -6,6 +7,11 @@ import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
+  // You can limit the mode in which the app runs
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 
