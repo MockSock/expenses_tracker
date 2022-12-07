@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
@@ -166,21 +165,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             // Sizing can be done dynamically here, simplifying the code
             // and utilizing unique styling easier
-            Container(
-              height: (MediaQuery.of(context).size.height -
-                      customAppBar.preferredSize.height) *
-                  0.3,
-              child: FinanceChart(_userTransactions),
-            ),
-            Container(
-              height: (MediaQuery.of(context).size.height -
-                      customAppBar.preferredSize.height) *
-                  0.7,
-              child: TransactionList(
-                transactions: _userTransactions,
-                deleteTransaction: _deleteTransaction,
-              ),
-            ),
+            _showChart
+                ? Container(
+                    height: (MediaQuery.of(context).size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: FinanceChart(_userTransactions),
+                  )
+                : Container(
+                    height: (MediaQuery.of(context).size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: TransactionList(
+                      transactions: _userTransactions,
+                      deleteTransaction: _deleteTransaction,
+                    ),
+                  ),
           ],
         ),
       ),
