@@ -83,7 +83,7 @@ class _NewTransactionState extends State<NewTransaction> {
             left: 10,
             right: 10,
             // This portion is still needed to keep a healthy amount of space between content and the keyboard/
-            bottom: MediaQuery.of(context).viewInsets.bottom,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
           ),
           child: Column(
             // puts button on the right
