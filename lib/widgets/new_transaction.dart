@@ -72,6 +72,8 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
+    // Single Child Scroll View will ensure that
+    // the keyboard will have its own space
     return SingleChildScrollView(
       child: Card(
         elevation: 5,
@@ -80,6 +82,7 @@ class _NewTransactionState extends State<NewTransaction> {
             top: 10,
             left: 10,
             right: 10,
+            // This portion is still needed to keep a healthy amount of space between content and the keyboard/
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: Column(
