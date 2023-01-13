@@ -82,19 +82,29 @@ class TransactionList extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            // Easiest way to format and return as string
-                            DateFormat.yMMMd()
-                                .format(transactions[index].date)
-                                .toString(),
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              fontStyle: FontStyle.italic,
+                        Row(
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                // Easiest way to format and return as string
+                                DateFormat.yMMMd()
+                                    .format(transactions[index].date)
+                                    .toString(),
+                                style: const TextStyle(
+                                  fontSize: 14.0,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
                             ),
-                          ),
+                            IconButton(
+                              icon: const Icon(Icons.delete),
+                              color: Theme.of(context).errorColor,
+                              onPressed: () =>
+                                  deleteTransaction(transactions[index].id),
+                            ),
+                          ],
                         ),
                       ],
                     ),
