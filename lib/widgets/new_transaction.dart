@@ -75,11 +75,11 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
-        padding: const EdgeInsets.only(
+        padding: EdgeInsets.only(
           top: 10,
           left: 10,
           right: 10,
-          bottom: 10,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         child: Column(
           // puts button on the right
