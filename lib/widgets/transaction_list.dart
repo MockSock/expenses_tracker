@@ -111,6 +111,7 @@ class TransactionList extends StatelessWidget {
                                   )
                                 : MaterialButton(
                                     // This is a super easy basic button to use
+                                    // only issue is it doesn't use icons
                                     color: Theme.of(context).errorColor,
                                     onPressed: () => deleteTransaction(
                                         transactions[index].id),
