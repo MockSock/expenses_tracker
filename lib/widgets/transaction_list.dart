@@ -98,16 +98,29 @@ class TransactionList extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            
-                            // Adding these conditions allows the UI to change dynamically 
-                            // based on the user's device, note that this should not remove 
+
+                            // Adding these conditions allows the UI to change dynamically
+                            // based on the user's device, note that this should not remove
                             // critical functionality, otherwise a poor user experience is given
-                            MediaQuery.of(context).size.width > 360 ? IconButton(
-                              icon: const Icon(Icons.delete),
-                              color: Theme.of(context).errorColor,
-                              onPressed: () =>
-                                  deleteTransaction(transactions[index].id),
-                            ) : ,
+                            MediaQuery.of(context).size.width > 360
+                                ? IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    color: Theme.of(context).errorColor,
+                                    onPressed: () => deleteTransaction(
+                                        transactions[index].id),
+                                  )
+                                : MaterialButton(
+                                    // This is a super easy basic button to use
+                                    color: Theme.of(context).errorColor,
+                                    onPressed: () => deleteTransaction(
+                                        transactions[index].id),
+                                    child: const Text(
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      'Delete',
+                                    ),
+                                  ),
                           ],
                         ),
                       ],
