@@ -159,6 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // and will automatically change the look of the app
                 // to match the look of the device IE cupertino for iOS
                 Switch.adaptive(
+                  activeColor: Theme.of(context).colorScheme.secondary,
                   value: _showChart,
                   // Will only accept bool values
                   onChanged: (val) {
