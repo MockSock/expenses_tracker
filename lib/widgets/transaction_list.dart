@@ -102,14 +102,11 @@ class TransactionList extends StatelessWidget {
                             // Adding these conditions allows the UI to change dynamically
                             // based on the user's device, note that this should not remove
                             // critical functionality, otherwise a poor user experience is given
+
+                            // This will now size properly depending on
+                            // what space is needed for the button
                             MediaQuery.of(context).size.width > 360
-                                ? IconButton(
-                                    icon: const Icon(Icons.delete),
-                                    color: Theme.of(context).errorColor,
-                                    onPressed: () => deleteTransaction(
-                                        transactions[index].id),
-                                  )
-                                : MaterialButton(
+                                ? MaterialButton(
                                     // This is a super easy basic button to use
                                     // only issue is it doesn't use icons
 
@@ -131,6 +128,12 @@ class TransactionList extends StatelessWidget {
                                         const Icon(Icons.delete),
                                       ],
                                     ),
+                                  )
+                                : IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    color: Theme.of(context).errorColor,
+                                    onPressed: () => deleteTransaction(
+                                        transactions[index].id),
                                   ),
                           ],
                         ),
