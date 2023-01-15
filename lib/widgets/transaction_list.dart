@@ -112,14 +112,24 @@ class TransactionList extends StatelessWidget {
                                 : MaterialButton(
                                     // This is a super easy basic button to use
                                     // only issue is it doesn't use icons
+
+                                    // It will only show if it has enough space
+                                    // for the text on the user's screen
                                     color: Theme.of(context).errorColor,
                                     onPressed: () => deleteTransaction(
                                         transactions[index].id),
-                                    child: const Text(
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      'Delete',
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        // Work around for no icon option
+                                        const Text(
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          'Delete',
+                                        ),
+                                        const Icon(Icons.delete),
+                                      ],
                                     ),
                                   ),
                           ],
