@@ -128,6 +128,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // This is the reccomended way to use MediaQuery repeatedly
+    final mediaQuery = MediaQuery.of(context);
+
     // By making a custom one, the object can be called and manipulated more
     // easily, and let's the experience within the app be more unique
     final customAppBar = AppBar(
@@ -167,13 +170,13 @@ class _MyHomePageState extends State<MyHomePage> {
             // and utilizing unique styling easier
             _showChart
                 ? Container(
-                    height: (MediaQuery.of(context).size.height -
+                    height: (mediaQuery.size.height -
                             customAppBar.preferredSize.height) *
                         0.7,
                     child: FinanceChart(_userTransactions),
                   )
                 : Container(
-                    height: (MediaQuery.of(context).size.height -
+                    height: (mediaQuery.size.height -
                             customAppBar.preferredSize.height) *
                         0.7,
                     child: TransactionList(
