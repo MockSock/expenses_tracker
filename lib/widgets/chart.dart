@@ -23,7 +23,7 @@ class FinanceChart extends StatelessWidget {
 
       double totalSum = 0.0;
 
-      // i stands for Iterationan and this was the approach used because it is language agnostic
+      // i stands for Iteration and this was the approach used because it is language agnostic
       for (var i = 0; i < recentTransactions.length; i++) {
         // This now breaks down the timestamps by the day, month, and year
         if (recentTransactions[i].date.day == weekDay.day &&
@@ -36,7 +36,7 @@ class FinanceChart extends StatelessWidget {
       // return a map
       // the E special constructor gives a shortcut for weekday
       return {
-        // return the first letter of the day
+        // return the first letter of the day and feel like issue is caused here
         'day': DateFormat.E(weekDay).format(weekDay).substring(0, 1),
         'amount': totalSum,
       };

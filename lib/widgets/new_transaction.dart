@@ -72,66 +72,76 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          // puts button on the right
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              // the controller will now track the value for you
-              controller: _titleController,
-              decoration: const InputDecoration(labelText: 'Title'),
-              // needs paranthesis for when validation is there so it runs
-              onSubmitted: (_) => submitData(),
-            ),
-            TextField(
-              // Allows the keyboard to be locked to a number pad
-              keyboardType: TextInputType.number,
-              controller: _amountController,
-              decoration: const InputDecoration(labelText: 'Amount'),
-              // convention states that you use an underscore
-              // to use on one time variables like this parameter
-              onSubmitted: (_) => submitData(),
-            ),
-
-            // Date Picker Button
-            // Will take up as much
-            // space as possible
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    _chosenDate == null
-                        ? 'No Date Chosen'
-                        : 'Picked Date: ${DateFormat.yMd().format(_chosenDate!)}',
-                  ),
-                  TextButton(
-                    onPressed: datePicker,
-                    child: const Text(
-                      'Pick a Date',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.green),
-                    ),
-                  ),
-                ],
+    // Single Child Scroll View will ensure that
+    // the keyboard will have its own space
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 10,
+            left: 10,
+            right: 10,
+            // This portion is still needed to keep a healthy amount of space between content and the keyboard/
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+          ),
+          child: Column(
+            // puts button on the right
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                // the controller will now track the value for you
+                controller: _titleController,
+                decoration: const InputDecoration(labelText: 'Title'),
+                // needs paranthesis for when validation is there so it runs
+                onSubmitted: (_) => submitData(),
               ),
-            ),
+              TextField(
+                // Allows the keyboard to be locked to a number pad
+                keyboardType: TextInputType.number,
+                controller: _amountController,
+                decoration: const InputDecoration(labelText: 'Amount'),
+                // convention states that you use an underscore
+                // to use on one time variables like this parameter
+                onSubmitted: (_) => submitData(),
+              ),
 
-            // Submit Button
-            ElevatedButton(
-              onPressed: submitData,
-              child: const Text(
-                'Add Transaction',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.green,
+              // Date Picker Button
+              // Will take up as much
+              // space as possible
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      _chosenDate == null
+                          ? 'No Date Chosen'
+                          : 'Picked Date: ${DateFormat.yMd().format(_chosenDate!)}',
+                    ),
+                    TextButton(
+                      onPressed: datePicker,
+                      child: const Text(
+                        'Pick a Date',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.green),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
+
+              // Submit Button
+              ElevatedButton(
+                onPressed: submitData,
+                child: const Text(
+                  'Add Transaction',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

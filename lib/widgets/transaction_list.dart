@@ -19,33 +19,33 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? Column(
-            children: <Widget>[
-              Text(
-                style: Theme.of(context).textTheme.bodyText1,
-                'No Transactions Added Yet',
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Container(
-                height: 200,
-                child: Image.asset(
-                  // This won't load the image asset
-                  'waiting.png',
-                  fit: BoxFit.cover,
+        ? LayoutBuilder(builder: (ctx, constraints) {
+            return Column(
+              children: <Widget>[
+                Text(
+                  style: Theme.of(context).textTheme.bodyText1,
+                  'No Transactions Added Yet',
                 ),
-              ),
-            ],
-          )
-        // Still runs this builder for some reason
+                const SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  height: constraints.maxHeight * 0.6,
+                  child: Image.asset(
+                    'assets/pictures/waiting.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            );
+          })
         : ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (context, index) {
               // index will now track the specific trnasaction,
               // letting flutter call for data based on the index
               return Card(
-                // Always think "What shoud be inside my Widget"
+                // Always think "What should be inside my Widget"
                 // This helps plan the layout of the widgets and
                 // keeps you moving in a concrete direction
                 child: Row(
@@ -82,19 +82,63 @@ class TransactionList extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            // Easiest way to format and return as string
-                            DateFormat.yMMMd()
-                                .format(transactions[index].date)
-                                .toString(),
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              fontStyle: FontStyle.italic,
+                        Row(
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                // Easiest way to format and return as string
+                                DateFormat.yMMMd()
+                                    .format(transactions[index].date)
+                                    .toString(),
+                                style: const TextStyle(
+                                  fontSize: 14.0,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
                             ),
-                          ),
+
+                            // Adding these conditions allows the UI to change dynamically
+                            // based on the user's device, note that this should not remove
+                            // critical functionality, otherwise a poor user experience is given
+
+                            // This will now size properly depending on
+                            // what space is needed for the button
+                            MediaQuery.of(context).size.width > 360
+                                ? MaterialButton(
+                                    // This is a super easy basic button to use
+                                    // only issue is it doesn't use icons
+
+                                    // It will only show if it has enough space
+                                    // for the text on the user's screen
+                                    color: Theme.of(context).errorColor,
+                                    onPressed: () => deleteTransaction(
+                                        transactions[index].id),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      // By making it const, it is as if you put const before all widgets
+                                      // Because Theme is used, it can not be const
+                                      children: <Widget>[
+                                        // Work around for no icon option
+                                        Text(
+                                          'Delete',
+                                          style: TextStyle(
+                                            color: Theme.of(context).errorColor,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const Icon(Icons.delete),
+                                      ],
+                                    ),
+                                  )
+                                : IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    color: Theme.of(context).errorColor,
+                                    onPressed: () => deleteTransaction(
+                                        transactions[index].id),
+                                  ),
+                          ],
                         ),
                       ],
                     ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
@@ -73,6 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  bool _showChart = false;
+
   // getter for recent transactions
   List<Transaction> get _recentTransaction {
     // when a certain condition is fulfilled,
@@ -127,6 +128,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // This is the reccomended way to use MediaQuery repeatedly
+    final mediaQuery = MediaQuery.of(context);
+
     // By making a custom one, the object can be called and manipulated more
     // easily, and let's the experience within the app be more unique
     final customAppBar = AppBar(
@@ -143,33 +147,45 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     return Scaffold(
       appBar: customAppBar,
-      body: Column(
-        // The module ended here, but I am not happy with this app
-        // It doesn't even run, which means I can't test it
-
-        // So the goal is to get it running, the first issue
-        // comes in how the transaction list works
-        // This is explained in transaction_list.dart
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          // Sizing can be done dynamically here, simplifying the code
-          // and utilizing unique styling easier
-          Container(
-            height: (MediaQuery.of(context).size.height -
-                    customAppBar.preferredSize.height) *
-                0.3,
-            child: FinanceChart(_userTransactions),
-          ),
-          Container(
-            height: (MediaQuery.of(context).size.height -
-                    customAppBar.preferredSize.height) *
-                0.7,
-            child: TransactionList(
-              transactions: _userTransactions,
-              deleteTransaction: _deleteTransaction,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Show Finance Chart'),
+                Switch(
+                  value: _showChart,
+                  // Will only accept bool values
+                  onChanged: (val) {
+                    setState(() {
+                      _showChart = val;
+                    });
+                  },
+                ),
+              ],
             ),
-          ),
-        ],
+            // Sizing can be done dynamically here, simplifying the code
+            // and utilizing unique styling easier
+            _showChart
+                ? Container(
+                    height: (mediaQuery.size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: FinanceChart(_userTransactions),
+                  )
+                : Container(
+                    height: (mediaQuery.size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: TransactionList(
+                      transactions: _userTransactions,
+                      deleteTransaction: _deleteTransaction,
+                    ),
+                  ),
+          ],
+        ),
       ),
       // Just adding it down here to help
       // visualize how the app will look
