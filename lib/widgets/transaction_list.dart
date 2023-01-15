@@ -118,15 +118,17 @@ class TransactionList extends StatelessWidget {
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       // By making it const, it is as if you put const before all widgets
-                                      children: const [
+                                      // Because Theme is used, it can not be const
+                                      children: <Widget>[
                                         // Work around for no icon option
                                         Text(
                                           'Delete',
                                           style: TextStyle(
+                                            color: Theme.of(context).errorColor,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Icon(Icons.delete),
+                                        const Icon(Icons.delete),
                                       ],
                                     ),
                                   )
