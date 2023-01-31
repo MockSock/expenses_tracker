@@ -199,6 +199,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // Dart io allows the dev to check the environment
       // and modify the experience accordingly
       floatingActionButton: Platform.isIOS
+          // Makes it so that there's nothing there
+          // for them, which is standard for iOS
           ? Container()
           : FloatingActionButton(
               onPressed: () => _startAddNewTransaction(context),
