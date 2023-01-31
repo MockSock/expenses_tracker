@@ -219,8 +219,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // Scaffold is always material which is android based
     return Platform.isIOS
         ? CupertinoPageScaffold(
-            child: pageBody,
             navigationBar: customAppBar,
+            child: pageBody,
           )
         : Scaffold(
             appBar: customAppBar,
