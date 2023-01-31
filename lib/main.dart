@@ -150,7 +150,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-          )
+            // This allows it to keep the sizing it wants
+          ) as PreferredSizeWidget
         : AppBar(
             title: const Text('Personal Expenses'),
 
