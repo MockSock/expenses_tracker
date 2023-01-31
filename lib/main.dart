@@ -165,6 +165,9 @@ class _MyHomePageState extends State<MyHomePage> {
           );
 
     final pageBody = SafeArea(
+      // Safe area is used to make sure the boundaries of the
+      // environment and device are respected, which helps keep
+      // the app looking good
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
