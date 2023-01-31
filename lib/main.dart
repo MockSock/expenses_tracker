@@ -23,36 +23,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
-        ? CupertinoApp()
-        : MaterialApp(
-            title: 'Personal Expenses',
-            theme: ThemeData(
-              // Swatch will automatically generate
-              // different shades of the color given
+    return MaterialApp(
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        // Swatch will automatically generate
+        // different shades of the color given
 
-              // The tutorial uses accent color, which is
-              // deprecated, and offers a different set of
-              // coloring options, so study later
-              primarySwatch: Colors.green,
+        // The tutorial uses accent color, which is
+        // deprecated, and offers a different set of
+        // coloring options, so study later
+        primarySwatch: Colors.green,
 
-              // Now use the font from pubspec.yaml
-              fontFamily: 'Quicksand',
-              // now anything that is a title will be themed as such
-              textTheme: ThemeData.light().textTheme.copyWith(
-                    headline6: const TextStyle(
-                      fontFamily: 'OpenSans',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    bodyText1: const TextStyle(
-                      // fill out rest later
-                      fontSize: 14,
-                    ),
-                  ),
+        // Now use the font from pubspec.yaml
+        fontFamily: 'Quicksand',
+        // now anything that is a title will be themed as such
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              bodyText1: const TextStyle(
+                // fill out rest later
+                fontSize: 14,
+              ),
             ),
-            home: MyHomePage(),
-          );
+      ),
+      home: MyHomePage(),
+    );
   }
 }
 
