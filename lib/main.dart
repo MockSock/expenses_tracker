@@ -164,16 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           );
 
-    final pageBody;
-    // Scaffold is always material which is android based
-    return Platform.isIOS
-        ? CupertinoPageScaffold(
-            child: pageBody,
-            navigationBar: customAppBar,
-          )
-        : Scaffold(
-            appBar: customAppBar,
-            body: SingleChildScrollView(
+    final pageBody = SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
@@ -230,7 +221,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 : FloatingActionButton(
                     onPressed: () => _startAddNewTransaction(context),
                     child: const Icon(Icons.add),
-                  ),
+                  );
+    // Scaffold is always material which is android based
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: customAppBar,
+          )
+        : Scaffold(
+            appBar: customAppBar,
+            body: pageBody,
           );
   }
 }
