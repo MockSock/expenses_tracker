@@ -175,7 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text('Show Finance Chart'),
+                Text(
+                  'Show Finance Chart',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 // Certain widgets will take the adaptive constructor
                 // and will automatically change the look of the app
                 // to match the look of the device IE cupertino for iOS
