@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import './widgets/transaction_list.dart';
@@ -135,77 +136,101 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // By making a custom one, the object can be called and manipulated more
     // easily, and let's the experience within the app be more unique
-    final customAppBar = AppBar(
-      title: const Text('Personal Expenses'),
-
-      // We can add action buttons here,
-      // and make core features easier to access
-      actions: <Widget>[
-        IconButton(
-          onPressed: () => _startAddNewTransaction(context),
-          icon: const Icon(Icons.add),
-        ),
-      ],
-    );
-    return Scaffold(
-      appBar: customAppBar,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+    final customAppBar = Platform.isIOS
+        ? CupertinoNavigationBar(
+            middle: const Text('Personal Expenses'),
+            trailing: Row(
+              // Keeps the row as small as possible
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text('Show Finance Chart'),
-                // Certain widgets will take the adaptive constructor
-                // and will automatically change the look of the app
-                // to match the look of the device IE cupertino for iOS
-                Switch.adaptive(
-                  activeColor: Theme.of(context).colorScheme.secondary,
-                  value: _showChart,
-                  // Will only accept bool values
-                  onChanged: (val) {
-                    setState(() {
-                      _showChart = val;
-                    });
-                  },
+                GestureDetector(
+                  onTap: () => _startAddNewTransaction(context),
+                  // Always make sure to link cupertino widgets to cupertino scaffold
+                  child: const Icon(CupertinoIcons.add),
                 ),
               ],
             ),
-            // Sizing can be done dynamically here, simplifying the code
-            // and utilizing unique styling easier
-            _showChart
-                ? Container(
-                    height: (mediaQuery.size.height -
-                            customAppBar.preferredSize.height) *
-                        0.7,
-                    child: FinanceChart(_userTransactions),
-                  )
-                : Container(
-                    height: (mediaQuery.size.height -
-                            customAppBar.preferredSize.height) *
-                        0.7,
-                    child: TransactionList(
-                      transactions: _userTransactions,
-                      deleteTransaction: _deleteTransaction,
-                    ),
+          )
+        : AppBar(
+            title: const Text('Personal Expenses'),
+
+            // We can add action buttons here,
+            // and make core features easier to access
+            actions: <Widget>[
+              IconButton(
+                onPressed: () => _startAddNewTransaction(context),
+                icon: const Icon(Icons.add),
+              ),
+            ],
+          );
+
+    final pageBody;
+    // Scaffold is always material which is android based
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: customAppBar,
+          )
+        : Scaffold(
+            appBar: customAppBar,
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text('Show Finance Chart'),
+                      // Certain widgets will take the adaptive constructor
+                      // and will automatically change the look of the app
+                      // to match the look of the device IE cupertino for iOS
+                      Switch.adaptive(
+                        activeColor: Theme.of(context).colorScheme.secondary,
+                        value: _showChart,
+                        // Will only accept bool values
+                        onChanged: (val) {
+                          setState(() {
+                            _showChart = val;
+                          });
+                        },
+                      ),
+                    ],
                   ),
-          ],
-        ),
-      ),
-      // Just adding it down here to help
-      // visualize how the app will look
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      // Dart io allows the dev to check the environment
-      // and modify the experience accordingly
-      floatingActionButton: Platform.isIOS
-          // Makes it so that there's nothing there
-          // for them, which is standard for iOS
-          ? Container()
-          : FloatingActionButton(
-              onPressed: () => _startAddNewTransaction(context),
-              child: const Icon(Icons.add),
+                  // Sizing can be done dynamically here, simplifying the code
+                  // and utilizing unique styling easier
+                  _showChart
+                      ? Container(
+                          height: (mediaQuery.size.height -
+                                  customAppBar.preferredSize.height) *
+                              0.7,
+                          child: FinanceChart(_userTransactions),
+                        )
+                      : Container(
+                          height: (mediaQuery.size.height -
+                                  customAppBar.preferredSize.height) *
+                              0.7,
+                          child: TransactionList(
+                            transactions: _userTransactions,
+                            deleteTransaction: _deleteTransaction,
+                          ),
+                        ),
+                ],
+              ),
             ),
-    );
+            // Just adding it down here to help
+            // visualize how the app will look
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            // Dart io allows the dev to check the environment
+            // and modify the experience accordingly
+            floatingActionButton: Platform.isIOS
+                // Makes it so that there's nothing there
+                // for them, which is standard for iOS
+                ? Container()
+                : FloatingActionButton(
+                    onPressed: () => _startAddNewTransaction(context),
+                    child: const Icon(Icons.add),
+                  ),
+          );
   }
 }
