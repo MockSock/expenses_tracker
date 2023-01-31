@@ -164,50 +164,61 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           );
 
-    final pageBody = SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text('Show Finance Chart'),
-                      // Certain widgets will take the adaptive constructor
-                      // and will automatically change the look of the app
-                      // to match the look of the device IE cupertino for iOS
-                      Switch.adaptive(
-                        activeColor: Theme.of(context).colorScheme.secondary,
-                        value: _showChart,
-                        // Will only accept bool values
-                        onChanged: (val) {
-                          setState(() {
-                            _showChart = val;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  // Sizing can be done dynamically here, simplifying the code
-                  // and utilizing unique styling easier
-                  _showChart
-                      ? Container(
-                          height: (mediaQuery.size.height -
-                                  customAppBar.preferredSize.height) *
-                              0.7,
-                          child: FinanceChart(_userTransactions),
-                        )
-                      : Container(
-                          height: (mediaQuery.size.height -
-                                  customAppBar.preferredSize.height) *
-                              0.7,
-                          child: TransactionList(
-                            transactions: _userTransactions,
-                            deleteTransaction: _deleteTransaction,
-                          ),
-                        ),
-                ],
-              ),
+    final pageBody = SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Show Finance Chart'),
+                // Certain widgets will take the adaptive constructor
+                // and will automatically change the look of the app
+                // to match the look of the device IE cupertino for iOS
+                Switch.adaptive(
+                  activeColor: Theme.of(context).colorScheme.secondary,
+                  value: _showChart,
+                  // Will only accept bool values
+                  onChanged: (val) {
+                    setState(() {
+                      _showChart = val;
+                    });
+                  },
+                ),
+              ],
             ),
+            // Sizing can be done dynamically here, simplifying the code
+            // and utilizing unique styling easier
+            _showChart
+                ? Container(
+                    height: (mediaQuery.size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: FinanceChart(_userTransactions),
+                  )
+                : Container(
+                    height: (mediaQuery.size.height -
+                            customAppBar.preferredSize.height) *
+                        0.7,
+                    child: TransactionList(
+                      transactions: _userTransactions,
+                      deleteTransaction: _deleteTransaction,
+                    ),
+                  ),
+          ],
+        ),
+      ),
+    );
+    // Scaffold is always material which is android based
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: customAppBar,
+          )
+        : Scaffold(
+            appBar: customAppBar,
+            body: pageBody,
             // Just adding it down here to help
             // visualize how the app will look
             floatingActionButtonLocation:
@@ -221,16 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 : FloatingActionButton(
                     onPressed: () => _startAddNewTransaction(context),
                     child: const Icon(Icons.add),
-                  );
-    // Scaffold is always material which is android based
-    return Platform.isIOS
-        ? CupertinoPageScaffold(
-            child: pageBody,
-            navigationBar: customAppBar,
-          )
-        : Scaffold(
-            appBar: customAppBar,
-            body: pageBody,
+                  ),
           );
   }
 }
